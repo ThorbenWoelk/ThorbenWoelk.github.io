@@ -1,4 +1,26 @@
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener('DOMContentLoaded', () => {
+    const imageFiles = [
+        'TLW_3858_edit.jpg',
+        'TLW_3909_edit.jpg',
+        'TLW_3889_edit.jpg',
+        'TLW_3890_edit.jpg',
+        'TLW_3891_edit.jpg',
+        'TLW_3892_edit.jpg',
+        'TLW_3893_edit.jpg',
+        'TLW_3894_edit.jpg',
+        'TLW_3895_edit.jpg',
+        'TLW_3896_edit.jpg',
+        'TLW_3897_edit.jpg',
+        'TLW_3898_edit.jpg',
+        'TLW_3913_edit.jpg',
+        'TLW_3922_edit.jpg',
+        'TLW_3925_edit.jpg',
+        'TLW_3930_edit.jpg',
+        'TLW_3934_edit.jpg',
+        'TLW_3936_edit.jpg',
+        'TLW_3946_edit.jpg'
+    ];
+
     const titleMap = {
         'TLW_3858_edit.jpg': 'Temple maintenance',
         'TLW_3909_edit.jpg': 'Vista bungalows',
@@ -18,39 +40,23 @@ document.addEventListener('DOMContentLoaded', async () => {
         'TLW_3930_edit.jpg': 'Sunset Ko Tao I',
         'TLW_3934_edit.jpg': 'Sunset Ko Tao II',
         'TLW_3936_edit.jpg': 'Rocks',
-        'TLW_3946_edit.jpg': 'Sunset Ko Tao III',
+        'TLW_3946_edit.jpg': 'Sunset Ko Tao III'
     };
 
-    // Get image list
-    const response = await fetch('./assets/images/grid/');
-    const html = await response.text();
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, 'text/html');
-    const imageFiles = Array.from(doc.querySelectorAll('a'))
-        .map(a => a.href)
-        .filter(href => href.match(/\.(jpg|jpeg|png)$/i))
-        .map(href => href.split('/').pop());
-
-    // Generate grid items
     const grid = document.querySelector('.grid');
     grid.innerHTML = imageFiles.map(filename => `
         <div class="photo-item">
             <img 
                 src="./assets/images/grid/${filename}"
                 data-full="./assets/images/large/${filename}"
-                alt="${titleMap[filename] || filename.split('.')[0]}"
+                alt="${titleMap[filename]}"
                 loading="lazy"
             >
-            <div class="photo-info">
-                <h3>${titleMap[filename] || filename.split('.')[0]}</h3>
-            </div>
         </div>
     `).join('');
 
-    // Initialize modal
     new Modal();
 
-    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', e => {
             e.preventDefault();
