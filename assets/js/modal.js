@@ -2,8 +2,13 @@ class Modal {
     constructor() {
         this.modal = document.querySelector('.modal');
         this.modalImg = this.modal.querySelector('img');
-        this.bindEvents();
-        this.isLoading = false;
+        this.currentItem = null;
+        this.currentIndex = 0;
+        this.allItems = [];
+
+        // Touch handling
+        this.touchStartX = 0;
+        this.touchEndX = 0;
 
         // Create loading indicator
         this.loader = document.createElement('div');
@@ -12,10 +17,10 @@ class Modal {
 
         // Create navigation
         this.createNavigation();
+        this.bindEvents();
     }
 
     createNavigation() {
-        // Add navigation buttons
         this.prevBtn = document.createElement('button');
         this.nextBtn = document.createElement('button');
         this.prevBtn.className = 'modal-nav prev';
@@ -25,7 +30,6 @@ class Modal {
         this.modal.appendChild(this.prevBtn);
         this.modal.appendChild(this.nextBtn);
 
-        // Navigation event listeners
         this.prevBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             this.navigate(-1);
@@ -45,7 +49,6 @@ class Modal {
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
             if (!this.modal.classList.contains('active')) return;
-
             switch(e.key) {
                 case 'Escape': this.close(); break;
                 case 'ArrowLeft': this.navigate(-1); break;
@@ -53,11 +56,34 @@ class Modal {
             }
         });
 
-        // Listen for all image clicks
+        // Touch events
+        this.modal.addEventListener('touchstart', (e) => {
+            this.touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        this.modal.addEventListener('touchend', (e) => {
+            this.touchEndX = e.changedTouches[0].screenX;
+            this.handleSwipe();
+        }, { passive: true });
+
+        // Image click handler
         document.addEventListener('click', (e) => {
             const photoItem = e.target.closest('.photo-item');
             if (photoItem) this.open(photoItem);
         });
+    }
+
+    handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = this.touchStartX - this.touchEndX;
+
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                this.navigate(1);  // Swipe left
+            } else {
+                this.navigate(-1); // Swipe right
+            }
+        }
     }
 
     async open(photoItem) {
@@ -71,16 +97,15 @@ class Modal {
         this.modal.classList.add('active', 'loading');
         document.body.style.overflow = 'hidden';
 
-        // Preload image
         try {
-            await this.loadImage(fullRes);
+            await this.preloadImage(fullRes);
             this.modalImg.src = fullRes;
         } finally {
             this.modal.classList.remove('loading');
         }
     }
 
-    loadImage(src) {
+    preloadImage(src) {
         return new Promise((resolve, reject) => {
             const img = new Image();
             img.onload = resolve;
