@@ -1,64 +1,66 @@
 # Toto's Photos Portfolio
 
-Modern photography portfolio optimized for high-resolution images (6016x4016px).
+Photography portfolio optimized for 6016x4016px images.
 
-## Quick Start
+## Install
 
-```bash
-# Clone repository
-git clone https://github.com/yourusername/toto-photos.git
-cd toto-photos
-
-# Set up image processing script
-chmod +x scripts/optimize.sh
-
-# Process images (requires ImageMagick)
-./scripts/optimize.sh path/to/photo.jpg
-
-# Start local server
-python3 -m http.server 8000
+```powershell
+winget install ImageMagick.ImageMagick
 ```
 
-## Image Optimization
+## Run
 
-Images are automatically processed into 4 sizes:
-- Original (6016x4016px) - preserved
-- Large (2048x1365px) - modal view
-- Grid (1200x800px) - gallery view
-- Thumb (600x400px) - mobile optimization
+```powershell
+# Process single image
+.\scripts\optimize.ps1 -imagePath ".\images\IMG_1234.jpg"
 
-## Directory Structure
+# Process all images in \images folder
+.\scripts\batch.ps1
+
+# Start server (choose one)
+python -m http.server 8000
+# or
+npx serve
+```
+
+## Image Template
+
+```html
+
+<div class="photo-item wide">
+    <img
+            src="images/grid/IMG_1234.jpg"
+            data-full="./assets/images/large/IMG_1234.jpg"
+            alt="Photo description"
+            loading="lazy"
+    >
+    <div class="photo-info">
+        <h3>Title</h3>
+        <p>Category</p>
+    </div>
+</div>
+```
+
+## Structure
 
 ```
 toto-photos/
+├── images/           # Your original photos
+│   └── IMG_*.jpg    # 6016x4016px
 ├── assets/
-│   ├── css/
-│   │   ├── main.css    - Core styles
-│   │   ├── grid.css    - Gallery layout
-│   │   └── modal.css   - Image modal
-│   ├── js/
-│   │   ├── main.js     - Site initialization
-│   │   └── modal.js    - Modal functionality
-│   └── images/
-│       ├── original/   - Full resolution
-│       ├── large/      - Modal view
-│       ├── grid/       - Gallery view
-│       └── thumb/      - Mobile
-├── scripts/
-│   └── optimize.sh     - Image processing
-├── index.html
-└── README.md
+│   └── images/      # Auto-generated sizes
+│       ├── large/   # 2048x1365px
+│       ├── grid/    # 1200x800px
+│       └── thumb/   # 600x400px
+└── index.html
 ```
 
-## Development
+## Deploy
 
-1. Add photos to `assets/images/original/`
-2. Run optimization script
-3. Update `index.html` with new photo entries
-4. Test responsive behavior
-
-## Deployment
-
-1. Push to GitHub repository
-2. Enable GitHub Pages in repository settings
-3. Site will be live at `https://yourusername.github.io/toto-photos`
+```powershell
+git init
+git add .
+git commit -m "initial"
+git remote add origin https://github.com/username/username.github.io.git
+git push -u origin main
+```
