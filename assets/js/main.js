@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
   "TLW_3588_edit.jpg",
   "TLW_3618_edit.jpg",
   "TLW_3644_edit.jpg",
-  "TLW_3654_edit.jpg",
   "TLW_3668_edit.jpg",
   "TLW_3674_edit.jpg",
   "TLW_3676_edit.jpg",
