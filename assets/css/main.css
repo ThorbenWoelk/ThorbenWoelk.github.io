@@ -33,7 +33,16 @@ body {
     align-items: center;
     z-index: 100;
     transition: var(--transition);
-    mix-blend-mode: difference;
+}
+
+.logo {
+    font-weight: 500;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+nav a {
+    font-weight: 400;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 
 .logo {
@@ -92,4 +101,25 @@ nav a:hover {
 .landing:hover .landing-text {
     opacity: 1;
     transform: translateY(0);
+}
+
+.section {
+    padding: 8rem 2rem;
+    background: var(--bg-color);
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.section p {
+    margin-bottom: 1rem;
+    opacity: 0.8;
 }

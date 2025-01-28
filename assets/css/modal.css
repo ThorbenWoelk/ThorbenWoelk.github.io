@@ -1,84 +1,91 @@
-.grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-gap: 1px;
-    background: #111;
-    padding: 1px;
-}
-
-.photo-item {
-    grid-column: span 4;
-    position: relative;
-    aspect-ratio: 3/4;
-    overflow: hidden;
-    cursor: pointer;
-}
-
-.photo-item.wide {
-    grid-column: span 6;
-}
-
-.photo-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: scale(1.1);
-    transition: var(--transition);
-}
-
-.photo-item:hover img {
-    transform: scale(1);
-}
-
-.photo-info {
-    position: absolute;
-    bottom: 0;
+.modal {
+    position: fixed;
+    top: 0;
     left: 0;
     right: 0;
-    padding: 2rem;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-    opacity: 0;
-    transform: translateY(20px);
-    transition: var(--transition);
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.98);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    cursor: zoom-out;
 }
 
-.photo-item:hover .photo-info {
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    max-width: 90vw;
+    max-height: 90vh;
+    position: relative;
+    cursor: default;
+}
+
+.modal-content img {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
     opacity: 1;
-    transform: translateY(0);
+    transition: opacity 0.3s ease;
 }
 
-.photo-info h3 {
-    font-size: 1.2rem;
-    font-weight: 300;
-    margin-bottom: 0.5rem;
+.modal.loading .modal-content img {
+    opacity: 0.5;
 }
 
-.photo-info p {
+.modal-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s linear infinite;
+    display: none;
+}
+
+.modal.loading .modal-loader {
+    display: block;
+}
+
+.modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    padding: 1rem;
+    cursor: pointer;
     opacity: 0.7;
-    font-size: 0.9rem;
+    transition: opacity 0.3s;
 }
 
-@media (max-width: 1200px) {
-    .photo-item, .photo-item.wide {
-        grid-column: span 6;
-    }
+.modal-nav:hover {
+    opacity: 1;
+}
+
+.modal-nav.prev {
+    left: 1rem;
+}
+
+.modal-nav.next {
+    right: 1rem;
+}
+
+@keyframes spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 @media (max-width: 768px) {
-    .photo-item, .photo-item.wide {
-        grid-column: span 12;
-    }
-
-    nav a {
-        margin-left: 1rem;
-    }
-
-    .header {
-        padding: 1.5rem;
-    }
-
-    .landing-text {
-        left: 1.5rem;
-        bottom: 1.5rem;
+    .modal-nav {
+        font-size: 1.5rem;
+        padding: 0.5rem;
     }
 }
