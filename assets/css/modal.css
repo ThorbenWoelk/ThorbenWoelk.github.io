@@ -29,8 +29,8 @@
     object-fit: contain;
     opacity: 1;
     transition: opacity 0.3s ease;
+    background: none;  /* Remove browser's missing image background */
 }
-
 .modal.loading .modal-content img {
     opacity: 0.5;
 }
@@ -84,8 +84,22 @@
 }
 
 @media (max-width: 768px) {
+    .modal-content {
+        width: 100vw;
+        height: 100vh;
+    }
+
     .modal-nav {
+        background: rgba(0,0,0,0.5);
+        padding: 1rem;
         font-size: 1.5rem;
-        padding: 0.5rem;
+    }
+
+    .modal-nav.prev {
+        left: 0;
+    }
+
+    .modal-nav.next {
+        right: 0;
     }
 }

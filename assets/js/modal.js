@@ -96,6 +96,9 @@ class Modal {
 
         this.modal.classList.add('active', 'loading');
         document.body.style.overflow = 'hidden';
+        // Clear previous image immediately
+        this.modalImg.src = '';
+        this.modalImg.alt = '';  // Clear alt text
 
         try {
             await this.preloadImage(fullRes);
