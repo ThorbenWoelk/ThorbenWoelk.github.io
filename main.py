@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-import os
+import sys
+import logging
 import json
 from pathlib import Path
-import logging
-import sys
+from concurrent.futures import ThreadPoolExecutor
+
 from PIL import Image
 
 logging.basicConfig(
@@ -15,25 +16,21 @@ logging.basicConfig(
 
 def optimize_image(image_path, output_dirs):
     filename = Path(image_path).name
+    sizes = [(2048, 1365, "large"), (1200, 800, "grid"), (600, 400, "thumb")]
 
-    sizes = [
-        (2048, 1365, 'large'),
-        (1200, 800, 'grid'),
-        (600, 400, 'thumb')
-    ]
+    def process_size(size):
+        width, height, suffix = size
+        output_dir = Path(output_dirs[suffix])
+        output_dir.mkdir(parents=True, exist_ok=True)
+        output_path = output_dir / filename
 
-    with Image.open(image_path) as img:
-        for width, height, suffix in sizes:
-            output_dir = Path(output_dirs[suffix])
-            output_dir.mkdir(parents=True, exist_ok=True)
-            output_path = output_dir / filename
+        with Image.open(image_path) as img:
+            img = img.copy()
+            img.thumbnail((width, height), Image.LANCZOS)
+            img.save(output_path, quality=85, optimize=True)
 
-            img.copy().thumbnail((width, height), Image.LANCZOS)
-            img.save(
-                output_path,
-                quality=85,
-                optimize=True
-            )
+    with ThreadPoolExecutor() as executor:
+        executor.map(process_size, sizes)
 
     return filename
 
