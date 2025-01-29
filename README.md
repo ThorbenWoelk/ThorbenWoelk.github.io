@@ -2,60 +2,26 @@
 
 Photography portfolio optimized for 6016x4016px images.
 
-## Install
+## Prerequisites
 
 ```powershell
 winget install ImageMagick.ImageMagick
+npm install -g serve  # Optional, for development server
 ```
 
-## Run
+## Development
 
 ```powershell
-# Process single image
-.\scripts\optimize.ps1 -imagePath ".\images\IMG_1234.jpg"
+# Deploy: process images and start server
+.\scripts\deploy.ps1
 
-# Process all images in \images folder
-.\scripts\batch.ps1
-
-# Start server (choose one)
-python -m http.server 8000
-# or
-npx serve
+# Manual operations if needed:
+.\scripts\optimize.ps1 -imagePath ".\images\IMG_1234.jpg"  # Single image
+.\scripts\batch.ps1    # All images
+npx serve             # Development server
 ```
 
-## Image Template
-
-```html
-
-<div class="photo-item wide">
-    <img
-            src="images/grid/IMG_1234.jpg"
-            data-full="./assets/images/large/IMG_1234.jpg"
-            alt="Photo description"
-            loading="lazy"
-    >
-    <div class="photo-info">
-        <h3>Title</h3>
-        <p>Category</p>
-    </div>
-</div>
-```
-
-## Structure
-
-```
-toto-photos/
-├── images/           # Your original photos
-│   └── IMG_*.jpg    # 6016x4016px
-├── assets/
-│   └── images/      # Auto-generated sizes
-│       ├── large/   # 2048x1365px
-│       ├── grid/    # 1200x800px
-│       └── thumb/   # 600x400px
-└── index.html
-```
-
-## Deploy
+## Deploy to GitHub Pages
 
 ```powershell
 git init

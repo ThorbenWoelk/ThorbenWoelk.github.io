@@ -1,4 +1,4 @@
-class Modal {
+export class Modal {
     constructor() {
         this.modal = document.querySelector('.modal');
         this.modalImg = this.modal.querySelector('img');
