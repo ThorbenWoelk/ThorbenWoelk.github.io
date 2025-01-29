@@ -1,5 +1,7 @@
 # Toto's Photography Portfolio
 
+This is Thorben's personal photography website hosted on GitHub pages. 
+
 ## Prerequisites
 
 ```bash
