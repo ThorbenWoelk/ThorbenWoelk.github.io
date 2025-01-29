@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const html = collectionImages.map((filename, index) => `
             <div class="photo-item">
                 <img 
-                    src="/assets/images/grid/${filename}"
-                    data-full="/assets/images/large/${filename}"
+                    src="/processed/images/grid/${filename}"
+                    data-full="/processed/images/large/${filename}"
                     alt="Photo ${index + 1}"
                     loading="lazy"
                 >

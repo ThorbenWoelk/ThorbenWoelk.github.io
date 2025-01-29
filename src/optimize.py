@@ -41,9 +41,9 @@ def main():
     image_path = sys.argv[1]
 
     output_dirs = {
-        'large': root_path / 'assets' / 'images' / 'large',
-        'grid': root_path / 'assets' / 'images' / 'grid',
-        'thumb': root_path / 'assets' / 'images' / 'thumb'
+        'large': root_path / 'processed' / 'images' / 'large',
+        'grid': root_path / 'processed' / 'images' / 'grid',
+        'thumb': root_path / 'processed' / 'images' / 'thumb'
     }
 
     try:
