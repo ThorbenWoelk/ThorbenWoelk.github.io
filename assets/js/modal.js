@@ -38,6 +38,27 @@ export class Modal {
             e.stopPropagation();
             this.navigate(1);
         });
+
+        // Add close button
+        this.closeBtn = document.createElement('button');
+        this.closeBtn.className = 'modal-close';
+        this.closeBtn.innerHTML = '✕';
+        this.closeBtn.style.cssText = `
+            position: absolute; 
+            top: 10px; 
+            right: 10px; 
+            z-index: 1100; 
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        `;
+        this.modal.appendChild(this.closeBtn);
+
+        this.closeBtn.addEventListener('click', () => this.close());
     }
 
     bindEvents() {
