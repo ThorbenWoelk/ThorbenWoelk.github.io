@@ -15,12 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const html = collectionImages.map((filename, index) => `
             <div class="photo-item">
                 <img 
-                    src="/processed/images/grid/${filename}"
-                    srcset="/processed/images/thumb/${filename} 600w,
-                            /processed/images/grid/${filename} 1200w"
+                    src="/processed/${collectionName}/grid/${filename}"
+                    srcset="/processed/${collectionName}/thumb/${filename} 600w,
+                            /processed/${collectionName}/grid/${filename} 1200w"
                     sizes="(max-width: 768px) 100vw,
                            400px"
-                    data-full="/processed/images/large/${filename}"
+                    data-full="/processed/${collectionName}/large/${filename}"
                     alt="Photo ${index + 1}"
                     loading="lazy"
                     width="400"
@@ -37,13 +37,11 @@ document.addEventListener('DOMContentLoaded', () => {
         navLinks.forEach(link => link.classList.remove('active'));
         document.querySelector(`nav a[href="#${targetId}"]`).classList.add('active');
 
-        // Hide all sections
         currentSection.style.display = 'none';
         archiveSection.style.display = 'none';
         aboutSection.style.display = 'none';
         contactSection.style.display = 'none';
 
-        // Show target section and render if needed
         if (targetId === 'current') {
             currentSection.style.display = 'block';
             renderCollection('current', currentGrid);

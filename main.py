@@ -1,144 +1,75 @@
 #!/usr/bin/env python3
-import sys
-import logging
 import json
+import logging
+import sys
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
+from typing import Optional
 
-from PIL import Image
-
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s: %(message)s',
-    handlers=[logging.StreamHandler(sys.stdout)]
-)
+from src.scanner import Scanner
+from src.image_processor import process_image
 
 
-def optimize_image(image_path, output_dirs):
-    filename = Path(image_path).name
-    sizes = [(2048, 1365, "large"), (1200, 800, "grid"), (600, 400, "thumb")]
-
-    def process_size(size):
-        width, height, suffix = size
-        output_dir = Path(output_dirs[suffix])
-        output_dir.mkdir(parents=True, exist_ok=True)
-        output_path = output_dir / filename
-
-        with Image.open(image_path) as img:
-            img = img.copy()
-            img.thumbnail((width, height), Image.LANCZOS)
-            img.save(output_path, quality=85, optimize=True)
-
-    with ThreadPoolExecutor() as executor:
-        executor.map(process_size, sizes)
-
-    return filename
+def setup_logging():
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(levelname)s: %(message)s',
+        handlers=[logging.StreamHandler(sys.stdout)]
+    )
 
 
-def generate_image_collections():
+def find_base_path() -> Optional[Path]:
+    """Locate images directory."""
     possible_paths = [
         Path.cwd() / 'images',
         Path(__file__).resolve().parent / 'images',
-        Path(__file__).resolve().parent.parent / 'images'
     ]
-
-    images_path = next((path for path in possible_paths if path.exists()), None)
-
-    if not images_path:
-        logging.error("No images directory found")
-        return {}, None
-
-    logging.info(f"Using images path: {images_path}")
-
-    collections = {}
-    for collection in images_path.iterdir():
-        if collection.is_dir():
-            images = []
-            for img_path in collection.rglob('*.jpg'):
-                if img_path.exists() and img_path.stat().st_size:
-                    images.append(img_path.name)
-                else:
-                    logging.warning(f"Invalid or empty file: {img_path}")
-
-            if images:
-                collections[collection.name] = sorted(images)
-                logging.info(f"{collection.name}: {len(images)} valid images")
-            else:
-                logging.warning(f"No valid images in {collection.name}")
-
-    return collections, images_path
+    return next((p for p in possible_paths if p.exists()), None)
 
 
-def process_artifacts(source_dir):
-    if not source_dir:
-        logging.error("No source directory provided for processing")
-        return
-
-    artifact_dirs = [
-        Path(__file__).resolve().parent / 'processed' / 'images' / 'large',
-        Path(__file__).resolve().parent / 'processed' / 'images' / 'grid',
-        Path(__file__).resolve().parent / 'processed' / 'images' / 'thumb'
-    ]
-
-    # Create mapping of valid source images
-    source_images = {}
-    for collection in source_dir.iterdir():
-        if collection.is_dir():
-            for img_path in collection.rglob('*.jpg'):
-                if img_path.exists() and img_path.stat().st_size:
-                    source_images[img_path.name] = img_path
-
-    logging.info(f"Found {len(source_images)} valid source images")
-
-    # Process new or modified images
-    for img_name, img_path in source_images.items():
-        needs_processing = False
-        for dir in artifact_dirs:
-            processed_path = dir / img_name
-            if not processed_path.exists():
-                needs_processing = True
-                break
-            if processed_path.stat().st_mtime < img_path.stat().st_mtime:
-                needs_processing = True
-                break
-
-        if needs_processing:
-            logging.info(f"Processing image: {img_name}")
-            optimize_image(str(img_path), {
-                'large': str(artifact_dirs[0]),
-                'grid': str(artifact_dirs[1]),
-                'thumb': str(artifact_dirs[2])
-            })
-
-    # Remove orphaned processed images
-    for dir in artifact_dirs:
-        if not dir.exists():
-            continue
-        for artifact in dir.glob('*.jpg'):
-            if artifact.name not in source_images:
-                logging.info(f"DELETE: Removing orphaned {artifact}")
-                artifact.unlink()
-
-
-def write_js_list(collections):
-    if not collections:
-        logging.warning("No collections to write")
-        return
-
-    output_path = Path(__file__).resolve().parent / 'assets' / 'js' / 'imageList.js'
+def write_js_list(collections: dict, output_dir: Path):
+    """Generate JavaScript export of image collections."""
+    output_path = output_dir / 'assets' / 'js' / 'imageList.js'
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
-    js_content = f"export const imageCollections = {json.dumps(collections, indent=2)};\n"
-    js_content += f"export const imageFiles = {json.dumps(sorted([img for collection in collections.values() for img in collection]))}"
+    js_content = [
+        f"export const imageCollections = {json.dumps(collections, indent=2)};",
+        f"export const imageFiles = {json.dumps(sorted([img for imgs in collections.values() for img in imgs]))}"
+    ]
 
-    output_path.write_text(js_content)
+    output_path.write_text('\n'.join(js_content))
     logging.info(f"Generated {output_path}")
 
 
+def process_collection(collection: Path, base_path: Path):
+    """Process all images in a collection."""
+    scanner = Scanner(base_path)
+    to_process, _ = scanner.scan_collection(collection)
+
+    for image in to_process:
+        process_image(image, collection.name, base_path)
+
+
 def main():
-    collections, source_dir = generate_image_collections()
-    process_artifacts(source_dir)
-    write_js_list(collections)
+    setup_logging()
+    base_path = find_base_path()
+
+    if not base_path:
+        logging.error("No images directory found")
+        return
+
+    scanner = Scanner(base_path)
+    collections = scanner.scan_all()
+
+    with ThreadPoolExecutor() as executor:
+        futures = [
+            executor.submit(process_collection, Path(base_path / col), base_path)
+            for col in collections.keys()
+        ]
+        for future in futures:
+            future.result()
+
+    write_js_list(collections, base_path.parent)
 
 
 if __name__ == '__main__':
