@@ -32,7 +32,18 @@ export const imageCollections = {
     "TLW_3930_edit.webp",
     "TLW_3934_edit.webp",
     "TLW_3936_edit.webp",
-    "TLW_3946_edit.webp"
+    "TLW_3946_edit.webp",
+    "TLW_3951.webp",
+    "TLW_3955.webp",
+    "TLW_3956.webp",
+    "TLW_3960.webp",
+    "TLW_3963.webp",
+    "TLW_3969.webp",
+    "TLW_3974.webp",
+    "TLW_3980.webp",
+    "TLW_3981.webp",
+    "TLW_3988.webp",
+    "TLW_3990.webp"
   ]
 };
-export const imageFiles = ["0001_one_night_in_bangkok.webp", "0002_bird_bkk_park.webp", "0003_turtles_bkk_park.webp", "0004_chiang_mai_buddha_paint.webp", "0005_chiang_mai_fat_monk.webp", "TLW_3541_edit.webp", "TLW_3557_edit.webp", "TLW_3586_edit.webp", "TLW_3588_edit.webp", "TLW_3674_edit.webp", "TLW_3676_edit.webp", "TLW_3683_edit.webp", "TLW_3687_edit.webp", "TLW_3689_edit.webp", "TLW_3702_edit.webp", "TLW_3709_edit.webp", "TLW_3710_edit.webp", "TLW_3715_edit.webp", "TLW_3720_edit.webp", "TLW_3764_edit.webp", "TLW_3793_edited.webp", "TLW_3804_edit.webp", "TLW_3889_edit.webp", "TLW_3891_edit.webp", "TLW_3895_edit.webp", "TLW_3909_edit.webp", "TLW_3913_edit.webp", "TLW_3922_edit.webp", "TLW_3925_edit.webp", "TLW_3930_edit.webp", "TLW_3934_edit.webp", "TLW_3936_edit.webp", "TLW_3946_edit.webp"]
+export const imageFiles = ["0001_one_night_in_bangkok.webp", "0002_bird_bkk_park.webp", "0003_turtles_bkk_park.webp", "0004_chiang_mai_buddha_paint.webp", "0005_chiang_mai_fat_monk.webp", "TLW_3541_edit.webp", "TLW_3557_edit.webp", "TLW_3586_edit.webp", "TLW_3588_edit.webp", "TLW_3674_edit.webp", "TLW_3676_edit.webp", "TLW_3683_edit.webp", "TLW_3687_edit.webp", "TLW_3689_edit.webp", "TLW_3702_edit.webp", "TLW_3709_edit.webp", "TLW_3710_edit.webp", "TLW_3715_edit.webp", "TLW_3720_edit.webp", "TLW_3764_edit.webp", "TLW_3793_edited.webp", "TLW_3804_edit.webp", "TLW_3889_edit.webp", "TLW_3891_edit.webp", "TLW_3895_edit.webp", "TLW_3909_edit.webp", "TLW_3913_edit.webp", "TLW_3922_edit.webp", "TLW_3925_edit.webp", "TLW_3930_edit.webp", "TLW_3934_edit.webp", "TLW_3936_edit.webp", "TLW_3946_edit.webp", "TLW_3951.webp", "TLW_3955.webp", "TLW_3956.webp", "TLW_3960.webp", "TLW_3963.webp", "TLW_3969.webp", "TLW_3974.webp", "TLW_3980.webp", "TLW_3981.webp", "TLW_3988.webp", "TLW_3990.webp"]
