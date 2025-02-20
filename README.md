@@ -1,18 +1,21 @@
 # Toto's Photography Portfolio
 
-This is Thorben's personal photography website hosted on GitHub pages. 
+This is [Toto's personal photography website](https://thorbenwoelk.github.io/).
 
-## Prerequisites
 
+## Developer Guide
+### Prerequisites
+
+#### Windows
 ```bash
 # Install ImageMagick
-sudo apt-get install imagemagick  # Linux
-brew install imagemagick           # macOS
-# Windows: Download from official site
+winget install ImageMagick.ImageMagick 
 
 # Setup Python environment
 python3 -m venv venv
-source venv/bin/activate  # Unix
 venv\Scripts\activate    # Windows
-
 pip install -r requirements.txt
+```
+
+### How to run
+Navigate to root repo folder and run `npx serve`

@@ -5,15 +5,19 @@
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.98);
-    display: none;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
     cursor: zoom-out;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .modal.active {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
 }
 
 .modal-content {
@@ -21,6 +25,12 @@
     max-height: 90vh;
     position: relative;
     cursor: default;
+    transform: scale(0.95);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal.active .modal-content {
+    transform: scale(1);
 }
 
 .modal-content img {
@@ -29,8 +39,9 @@
     object-fit: contain;
     opacity: 1;
     transition: opacity 0.3s ease;
-    background: none;  /* Remove browser's missing image background */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
+
 .modal.loading .modal-content img {
     opacity: 0.5;
 }
@@ -57,26 +68,53 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: none;
+    background: rgba(0,0,0,0.4);
     border: none;
     color: white;
     font-size: 2rem;
     padding: 1rem;
     cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active .modal-nav {
     opacity: 0.7;
-    transition: opacity 0.3s;
 }
 
 .modal-nav:hover {
     opacity: 1;
+    background: rgba(0,0,0,0.6);
 }
 
 .modal-nav.prev {
-    left: 1rem;
+    left: 2rem;
 }
 
 .modal-nav.next {
-    right: 1rem;
+    right: 2rem;
+}
+
+/* Image info panel */
+.modal-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    padding: 20px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.modal.active:hover .modal-info {
+    transform: translateY(0);
 }
 
 @keyframes spin {
@@ -91,15 +129,17 @@
 
     .modal-nav {
         background: rgba(0,0,0,0.5);
-        padding: 1rem;
-        font-size: 1.5rem;
+        padding: 0.8rem;
+        font-size: 1.2rem;
+        width: 45px;
+        height: 45px;
     }
 
     .modal-nav.prev {
-        left: 0;
+        left: 0.5rem;
     }
 
     .modal-nav.next {
-        right: 0;
+        right: 0.5rem;
     }
 }
