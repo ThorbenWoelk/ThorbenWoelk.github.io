@@ -150,12 +150,18 @@ nav a:hover::after {
 
 .section {
     padding: var(--spacing-y) var(--spacing-x);
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Only animate sections that are being revealed */
+.section[data-animate] {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 1s ease, transform 1s ease;
 }
 
-.section.visible {
+.section[data-animate].visible {
     opacity: 1;
     transform: translateY(0);
 }
@@ -179,7 +185,6 @@ nav a:hover::after {
     line-height: 1.8;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .header {
         background: rgba(0,0,0,0.85);
@@ -209,9 +214,5 @@ nav a:hover::after {
 
     .landing {
         height: 80vh;
-    }
-
-    .section {
-        padding: var(--spacing-y) var(--spacing-x);
     }
 }
