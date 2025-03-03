@@ -52,20 +52,9 @@
     opacity: 1;
 }
 
-/* Featured image styling */
-.photo-item.featured {
-    grid-column: span 2;
-    aspect-ratio: 16/9;
-}
+/* Removed featured image styling */
 
 /* Responsive adjustments */
-@media (max-width: 1200px) {
-    .photo-item.featured {
-        grid-column: span 1;
-        aspect-ratio: 4/5;
-    }
-}
-
 @media (max-width: 480px) {
     .grid {
         grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));

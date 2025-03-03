@@ -34,10 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const collectionImages = imageCollections[collectionName];
         const html = collectionImages.map((filename, index) => {
             const metadata = getImageMetadata(filename);
-            const isFeatured = index === 0; // Make first image featured
+
+            // Removed the isFeatured variable and class assignment
 
             return `
-                <div class="photo-item ${isFeatured ? 'featured' : ''}" 
+                <div class="photo-item" 
                      data-category="${collectionName}">
                     <img 
                         src="/processed/${collectionName}/grid/${filename}"
