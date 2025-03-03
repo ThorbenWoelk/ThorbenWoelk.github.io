@@ -101,20 +101,100 @@
     right: 2rem;
 }
 
-/* Image info panel */
+/* Image info panel with metadata */
 .modal-info {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.8));
-    padding: 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.85) 30%);
+    padding: 24px;
+    color: white;
     transform: translateY(100%);
     transition: transform 0.3s ease;
+    z-index: 1050;
+    max-height: 80vh;
+    overflow-y: auto;
 }
 
+/* Make info panel visible on hover (for desktop) */
 .modal.active:hover .modal-info {
     transform: translateY(0);
+}
+
+/* Also make it visible when it has the "visible" class (for mobile) */
+.modal-info.visible {
+    transform: translateY(0) !important;
+}
+
+/* Metadata styling */
+.metadata-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.metadata-camera h3 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin: 0;
+    opacity: 0.95;
+}
+
+.metadata-exposure {
+    font-size: 1.1rem;
+    opacity: 0.95;
+    letter-spacing: 0.5px;
+    font-weight: 300;
+}
+
+.metadata-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px 20px;
+    margin-top: 12px;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.metadata-item {
+    line-height: 1.5;
+}
+
+.metadata-item span {
+    opacity: 0.7;
+    margin-right: 5px;
+}
+
+.metadata-comment {
+    grid-column: 1 / -1;
+    font-style: italic;
+    opacity: 0.85;
+}
+
+.metadata-date {
+    margin-top: 12px;
+    font-size: 0.9rem;
+    opacity: 0.75;
+    font-style: italic;
+}
+
+.metadata-notice {
+    text-align: center;
+    opacity: 0.6;
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.modal-info-toggle {
+    opacity: 0.7;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.modal-info-toggle:hover {
+    opacity: 1;
+    transform: scale(1.1);
 }
 
 @keyframes spin {
@@ -141,5 +221,19 @@
 
     .modal-nav.next {
         right: 0.5rem;
+    }
+
+    .metadata-details {
+        grid-template-columns: 1fr;
+    }
+
+    /* Don't show info panel on hover for mobile */
+    .modal.active:hover .modal-info {
+        transform: translateY(100%);
+    }
+
+    /* Only show it when toggled */
+    .modal-info.visible {
+        transform: translateY(0) !important;
     }
 }

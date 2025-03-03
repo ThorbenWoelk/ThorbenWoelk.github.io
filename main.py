@@ -2,6 +2,7 @@
 import json
 import logging
 import sys
+import importlib.util
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
 from typing import Optional
@@ -71,9 +72,42 @@ def process_collection(collection: Path, base_path: Path):
         process_image(image, collection.name, base_path)
 
 
+def extract_metadata(base_path: Path):
+    """Extract metadata from images using the extract_metadata.py script."""
+    try:
+        # Check if the extract_metadata script exists
+        script_path = Path(__file__).resolve().parent / 'src' / 'extract_metadata.py'
+
+        if not script_path.exists():
+            logging.warning(f"Metadata extraction script not found at: {script_path}")
+            return False
+
+        logging.info(f"Running metadata extraction script: {script_path}")
+
+        # Load and run the script
+        spec = importlib.util.spec_from_file_location("extract_metadata", script_path)
+        if spec and spec.loader:
+            module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(module)
+
+            # Call the main function from the module
+            if hasattr(module, 'main'):
+                module.main()
+                return True
+            else:
+                logging.error("Metadata extraction script doesn't have a main() function")
+        else:
+            logging.error("Failed to load metadata extraction script")
+
+    except Exception as e:
+        logging.error(f"Error running metadata extraction: {e}")
+
+    return False
+
+
 def main():
     setup_logging()
-    logging.info("Starting image processing")
+    logging.info("Starting photography workflow")
 
     base_path = find_base_path()
     if not base_path:
@@ -89,6 +123,15 @@ def main():
 
     logging.info(f"Found {len(collections)} collections: {', '.join(collections.keys())}")
 
+    # Extract metadata first (relatively lightweight operation)
+    logging.info("Starting metadata extraction...")
+    if extract_metadata(base_path):
+        logging.info("Metadata extraction completed successfully")
+    else:
+        logging.warning("Metadata extraction failed or was skipped")
+
+    # Then perform the heavy image processing tasks
+    logging.info("Starting image processing (this may take some time)...")
     with ThreadPoolExecutor() as executor:
         futures = [
             executor.submit(process_collection, Path(base_path / col), base_path)
@@ -97,8 +140,10 @@ def main():
         for future in futures:
             future.result()
 
+    # Finally generate the image list JS file
     write_js_list(collections, base_path)
-    logging.info("Image processing completed successfully")
+
+    logging.info("Photography workflow completed successfully")
 
 
 if __name__ == '__main__':
