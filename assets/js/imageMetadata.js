@@ -398,6 +398,24 @@ export const imageMetadata = {
       "Format": "JPEG",
       "Filename": "TLW_3990.jpg"
     },
+    "TLW_4041.webp": {
+      "Width": 6016,
+      "Height": 4016,
+      "Format": "MPO",
+      "Filename": "TLW_4041.JPG"
+    },
+    "TLW_4046.webp": {
+      "Width": 6016,
+      "Height": 4016,
+      "Format": "MPO",
+      "Filename": "TLW_4046.JPG"
+    },
+    "TLW_4052.webp": {
+      "Width": 6016,
+      "Height": 4016,
+      "Format": "MPO",
+      "Filename": "TLW_4052.JPG"
+    },
     "TLW_4152.webp": {
       "Width": 6016,
       "Height": 4016,
@@ -457,6 +475,54 @@ export const imageMetadata = {
       "Height": 3496,
       "Format": "JPEG",
       "Filename": "TLW_4247_edit.jpg"
+    },
+    "TLW_4327.webp": {
+      "Width": 6016,
+      "Height": 4016,
+      "Format": "JPEG",
+      "Filename": "TLW_4327.jpg"
+    },
+    "TLW_4347.webp": {
+      "Width": 4016,
+      "Height": 6016,
+      "Format": "JPEG",
+      "Filename": "TLW_4347.jpg"
+    },
+    "TLW_4354.webp": {
+      "Width": 5895,
+      "Height": 3935,
+      "Format": "JPEG",
+      "Filename": "TLW_4354.jpg"
+    },
+    "TLW_4355.webp": {
+      "Width": 6016,
+      "Height": 4016,
+      "Format": "JPEG",
+      "Filename": "TLW_4355.jpg"
+    },
+    "TLW_4357.webp": {
+      "Width": 6016,
+      "Height": 4016,
+      "Format": "JPEG",
+      "Filename": "TLW_4357.jpg"
+    },
+    "TLW_4359.webp": {
+      "Width": 4016,
+      "Height": 6016,
+      "Format": "JPEG",
+      "Filename": "TLW_4359.jpg"
+    },
+    "TLW_4360.webp": {
+      "Width": 6016,
+      "Height": 4016,
+      "Format": "JPEG",
+      "Filename": "TLW_4360.jpg"
+    },
+    "TLW_4368.webp": {
+      "Width": 6016,
+      "Height": 4016,
+      "Format": "JPEG",
+      "Filename": "TLW_4368.jpg"
     }
   }
 };
