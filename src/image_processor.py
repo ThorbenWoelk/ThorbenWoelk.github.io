@@ -1,5 +1,5 @@
 from pathlib import Path
-from PIL import Image
+from PIL import Image, ImageOps
 from typing import Dict
 import logging
 from config import SIZES, QUALITY, OUTPUT_FORMAT
@@ -14,12 +14,14 @@ def create_dirs(base_path: Path, collection: str) -> Dict[str, Path]:
         dirs[size] = path
     return dirs
 
-
 def process_image(src_path: Path, collection: str, base_path: Path) -> None:
     output_dirs = create_dirs(base_path, collection)
 
     try:
         with Image.open(src_path) as img:
+            # Apply EXIF orientation
+            img = ImageOps.exif_transpose(img)
+
             for size_name, (width, height) in SIZES.items():
                 out_path = output_dirs[size_name] / f"{src_path.stem}{OUTPUT_FORMAT}"
 
