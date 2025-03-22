@@ -523,6 +523,24 @@ export const imageMetadata = {
       "Height": 4016,
       "Format": "JPEG",
       "Filename": "TLW_4368.jpg"
+    },
+    "TLW_4399.webp": {
+      "Width": 5175,
+      "Height": 3455,
+      "Format": "JPEG",
+      "Filename": "TLW_4399.jpg"
+    },
+    "TLW_4408.webp": {
+      "Width": 4016,
+      "Height": 6016,
+      "Format": "JPEG",
+      "Filename": "TLW_4408.jpg"
+    },
+    "TLW_4416.webp": {
+      "Width": 3509,
+      "Height": 5257,
+      "Format": "JPEG",
+      "Filename": "TLW_4416.jpg"
     }
   }
 };
