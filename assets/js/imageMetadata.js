@@ -6,36 +6,6 @@ export const imageMetadata = {
       "Format": "JPEG",
       "Filename": "TLW_0164.jpg"
     },
-    "TLW_0180.webp": {
-      "Width": 3968,
-      "Height": 2640,
-      "Format": "JPEG",
-      "Filename": "TLW_0180.jpg"
-    },
-    "TLW_0216.webp": {
-      "Width": 3433,
-      "Height": 2284,
-      "Format": "JPEG",
-      "Filename": "TLW_0216.jpg"
-    },
-    "TLW_0267.webp": {
-      "Width": 3747,
-      "Height": 2493,
-      "Format": "JPEG",
-      "Filename": "TLW_0267.jpg"
-    },
-    "TLW_0290.webp": {
-      "Width": 3224,
-      "Height": 2145,
-      "Format": "JPEG",
-      "Filename": "TLW_0290.jpg"
-    },
-    "TLW_0294.webp": {
-      "Width": 3211,
-      "Height": 2137,
-      "Format": "JPEG",
-      "Filename": "TLW_0294.jpg"
-    },
     "TLW_0365.webp": {
       "Width": 3968,
       "Height": 2640,
@@ -47,6 +17,38 @@ export const imageMetadata = {
       "Height": 2640,
       "Format": "JPEG",
       "Filename": "TLW_0374.jpg"
+    }
+  },
+  "current": {
+    "0001_one_night_in_bangkok.webp": {
+      "Width": 6016,
+      "Height": 4016,
+      "Format": "JPEG",
+      "Filename": "0001_one_night_in_bangkok.jpg"
+    },
+    "0002_bird_bkk_park.webp": {
+      "Width": 2190,
+      "Height": 3285,
+      "Format": "JPEG",
+      "Filename": "0002_bird_bkk_park.jpg"
+    },
+    "0003_turtles_bkk_park.webp": {
+      "Width": 2265,
+      "Height": 1510,
+      "Format": "JPEG",
+      "Filename": "0003_turtles_bkk_park.jpg"
+    },
+    "0004_chiang_mai_buddha_paint.webp": {
+      "Width": 6016,
+      "Height": 4016,
+      "Format": "JPEG",
+      "Filename": "0004_chiang_mai_buddha_paint.jpg"
+    },
+    "0005_chiang_mai_fat_monk.webp": {
+      "Width": 5029,
+      "Height": 3353,
+      "Format": "JPEG",
+      "Filename": "0005_chiang_mai_fat_monk.jpg"
     },
     "TLW_3022.webp": {
       "Width": 6016,
@@ -125,44 +127,6 @@ export const imageMetadata = {
       "Height": 3484,
       "Format": "JPEG",
       "Filename": "TLW_3361.jpg"
-    },
-    "TLW_3397.webp": {
-      "Width": 4016,
-      "Height": 6016,
-      "Format": "JPEG",
-      "Filename": "TLW_3397.jpg"
-    }
-  },
-  "current": {
-    "0001_one_night_in_bangkok.webp": {
-      "Width": 6016,
-      "Height": 4016,
-      "Format": "JPEG",
-      "Filename": "0001_one_night_in_bangkok.jpg"
-    },
-    "0002_bird_bkk_park.webp": {
-      "Width": 2190,
-      "Height": 3285,
-      "Format": "JPEG",
-      "Filename": "0002_bird_bkk_park.jpg"
-    },
-    "0003_turtles_bkk_park.webp": {
-      "Width": 2265,
-      "Height": 1510,
-      "Format": "JPEG",
-      "Filename": "0003_turtles_bkk_park.jpg"
-    },
-    "0004_chiang_mai_buddha_paint.webp": {
-      "Width": 6016,
-      "Height": 4016,
-      "Format": "JPEG",
-      "Filename": "0004_chiang_mai_buddha_paint.jpg"
-    },
-    "0005_chiang_mai_fat_monk.webp": {
-      "Width": 5029,
-      "Height": 3353,
-      "Format": "JPEG",
-      "Filename": "0005_chiang_mai_fat_monk.jpg"
     },
     "TLW_3541_edit.webp": {
       "Width": 6016,
@@ -307,12 +271,6 @@ export const imageMetadata = {
       "Height": 4016,
       "Format": "JPEG",
       "Filename": "TLW_3925_edit.jpg"
-    },
-    "TLW_3930_edit.webp": {
-      "Width": 4016,
-      "Height": 6016,
-      "Format": "JPEG",
-      "Filename": "TLW_3930_edit.jpg"
     },
     "TLW_3934_edit.webp": {
       "Width": 4016,
