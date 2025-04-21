@@ -875,4 +875,52 @@ footer {
     .copyright {
         border-top: 1px solid #e0e0e0;
     }
+
+    /* Dark mode toggle button in header */
+    .dark-mode-toggle-container {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 100;
+    }
+
+    .dark-mode-toggle {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: all var(--transition-fast);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .dark-mode-toggle:hover {
+        transform: rotate(30deg);
+        background-color: var(--accent-color);
+    }
+
+    /* Make sure the header has position relative for proper positioning */
+    .header-left {
+        position: relative;
+    }
+
+    /* Responsive adjustments for dark mode toggle */
+    @media (max-width: 768px) {
+        .dark-mode-toggle-container {
+            top: 15px;
+            right: 15px;
+        }
+
+        .dark-mode-toggle {
+            width: 35px;
+            height: 35px;
+            font-size: 18px;
+        }
+    }
 }

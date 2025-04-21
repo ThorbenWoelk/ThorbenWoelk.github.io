@@ -21,6 +21,48 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
 
+    // Add dark mode toggle functionality
+    const addDarkModeToggle = () => {
+        // Look for the header or a suitable container in the header
+        const headerContainer = document.querySelector('.header-left');
+
+        if (headerContainer) {
+            // Create toggle button
+            const darkModeToggle = document.createElement('button');
+            darkModeToggle.className = 'dark-mode-toggle';
+            darkModeToggle.innerHTML = '🌓';
+            darkModeToggle.setAttribute('aria-label', 'Toggle dark mode');
+
+            // Create a container for the toggle to position it properly
+            const toggleContainer = document.createElement('div');
+            toggleContainer.className = 'dark-mode-toggle-container';
+            toggleContainer.appendChild(darkModeToggle);
+
+            // Insert the toggle at the top of the header
+            headerContainer.insertBefore(toggleContainer, headerContainer.firstChild);
+
+            // Check for saved preference or system preference
+            const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const savedTheme = localStorage.getItem('theme');
+
+            if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme)) {
+                document.body.classList.add('dark-mode');
+            }
+
+            // Toggle dark mode on click
+            darkModeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+
+                // Save preference
+                if (document.body.classList.contains('dark-mode')) {
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+        }
+    };
+
     // Fallback for browsers that don't support Intersection Observer
     const fallbackFadeIn = () => {
         document.querySelectorAll('.fade-in-section').forEach(section => {
@@ -99,44 +141,6 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', updateActiveLink);
     updateActiveLink(); // Run on page load
 
-    // Add dark mode toggle functionality
-    const addDarkModeToggle = () => {
-        const footer = document.querySelector('footer .container');
-
-        if (footer) {
-            // Create toggle button
-            const darkModeToggle = document.createElement('button');
-            darkModeToggle.className = 'dark-mode-toggle';
-            darkModeToggle.innerHTML = '🌓';
-            darkModeToggle.setAttribute('aria-label', 'Toggle dark mode');
-
-            // Insert button into the page
-            document.body.appendChild(darkModeToggle);
-
-            // Check for saved preference or system preference
-            const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const savedTheme = localStorage.getItem('theme');
-
-            if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme)) {
-                document.body.classList.add('dark-mode');
-            }
-
-            // Toggle dark mode on click
-            darkModeToggle.addEventListener('click', () => {
-                document.body.classList.toggle('dark-mode');
-
-                // Save preference
-                if (document.body.classList.contains('dark-mode')) {
-                    localStorage.setItem('theme', 'dark');
-                } else {
-                    localStorage.setItem('theme', 'light');
-                }
-            });
-        }
-    };
-
-    // Add dark mode toggle
-    addDarkModeToggle();
 });
 
 // Handle print action
