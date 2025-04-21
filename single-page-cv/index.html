@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thorben Wölk - CV</title>
+    <style>
+        /* Import fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap');
+
+        /* Variables */
+        :root {
+            --primary-color: #465A54; /* Dark moss green */
+            --secondary-color: #E8E4DE; /* Sandy beige */
+            --accent-color: #A9927D; /* Warm taupe */
+            --text-color: #2B3130; /* Almost black */
+            --light-text: #5C6761; /* Light slate gray */
+            --background: #FFFFFF; /* White for printing */
+
+            /* Font settings */
+            --heading-font: 'Playfair Display', serif;
+            --body-font: 'Inter', sans-serif;
+        }
+
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--body-font);
+            background-color: var(--background);
+            color: var(--text-color);
+            line-height: 1.4;
+            font-size: 9pt;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.4in;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: var(--heading-font);
+            color: var(--primary-color);
+            margin-bottom: 0.2rem;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.1rem;
+        }
+
+        h2 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--accent-color);
+            padding-bottom: 0.1rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0.3rem;
+        }
+
+        h3 {
+            font-family: var(--body-font);
+            font-weight: 500;
+            font-size: 0.85rem;
+            margin-bottom: 0.15rem;
+        }
+
+        p {
+            margin-bottom: 0.2rem;
+            font-size: 0.8rem;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* Header/Contact section */
+        .cv-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.6rem;
+        }
+
+        .name-title {
+            flex: 2;
+        }
+
+        .contact-info {
+            flex: 2;
+            text-align: right;
+            font-size: 0.75rem;
+        }
+
+        .job-title {
+            color: var(--light-text);
+            font-weight: 300;
+            font-size: 0.95rem;
+            margin-bottom: 0.2rem;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Two column layout */
+        .two-column {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .column-left {
+            flex: 2;
+        }
+
+        .column-right {
+            flex: 1;
+        }
+
+        /* Experience & Education */
+        .experience-item, .education-item {
+            margin-bottom: 0.45rem;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.1rem;
+        }
+
+        .company, .university {
+            font-weight: 500;
+            font-size: 0.8rem;
+        }
+
+        .dates {
+            font-size: 0.7rem;
+            color: var(--light-text);
+        }
+
+        .role, .degree {
+            font-style: italic;
+            font-size: 0.8rem;
+            margin-bottom: 0.1rem;
+        }
+
+        /* Description/bullet points */
+        ul {
+            list-style-type: none;
+            padding-left: 0.7rem;
+            margin-bottom: 0.2rem;
+        }
+
+        li {
+            position: relative;
+            font-size: 0.75rem;
+            margin-bottom: 0.1rem;
+        }
+
+        li:before {
+            content: '•';
+            position: absolute;
+            left: -0.7rem;
+            color: var(--accent-color);
+        }
+
+        /* Skills */
+        .skills-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .skill-category {
+            margin-bottom: 0.3rem;
+        }
+
+        .skill-category h3 {
+            font-size: 0.8rem;
+            margin-bottom: 0.1rem;
+        }
+
+        .skill-items {
+            font-size: 0.75rem;
+            color: var(--light-text);
+        }
+
+        /* Projects section - Modified to stretch wide */
+        .projects-section {
+            margin-top: 0.5rem;
+            width: 100%;
+        }
+
+        .projects-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 0.8rem;
+        }
+
+        .project-item {
+            flex: 1;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                padding: 0.4in;
+                width: 100%;
+                height: 100%;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            @page {
+                size: letter;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-header">
+        <div class="name-title">
+            <h1>Thorben Wölk</h1>
+            <p class="job-title">Head of Data Platform</p>
+        </div>
+        <div class="contact-info">
+            <p>thorben.woelk@gmail.com</p>
+            <p>https://thorbenwoelk.github.io/</p>
+            <p>github.com/ThorbenWoelk</p>
+            <p>linkedin.com/in/thorben-wölk-7b8b47160</p>
+            <p>Hamburg, Germany</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Summary</h2>
+        <p>Experienced Data Platform Lead and Cloud Engineer focusing on big data, microservices, and serverless architectures. Combining technical expertise with leadership skills to develop and implement data-driven solutions. Particularly interested in clean code, agile leadership, and AI-based efficiency improvements.</p>
+    </div>
+
+    <div class="two-column">
+        <div class="column-left">
+            <div class="section">
+                <h2>Experience</h2>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <span class="company">ZEIT ONLINE - Head of Data Platform</span>
+                        <span class="dates">May 2023 – Present</span>
+                    </div>
+                    <ul>
+                        <li>Leading data platform strategy and development for a major online news publisher</li>
+                        <li>Implementing user story mapping and data warehousing solutions</li>
+                        <li>Managing a team of data engineers, analytics engineers, and tracking experts</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <span class="company">ZEIT ONLINE - Software Engineer Big Data</span>
+                        <span class="dates">Oct 2021 – Apr 2023</span>
+                    </div>
+                    <ul>
+                        <li>Redesigned and built a scalable data platform leveraging Google Cloud</li>
+                        <li>Developed batch and streaming data ingestion with Python and SQL</li>
+                        <li>Implemented and managed GCP solutions and optimized data processing</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <span class="company">EOS Group - Software Engineer</span>
+                        <span class="dates">Jan 2019 – Sep 2021</span>
+                    </div>
+                    <ul>
+                        <li>Designed and operated Kubernetes-based systems for microservices</li>
+                        <li>Implemented AWS solutions including serverless architecture</li>
+                        <li>Automated infrastructure and ML model deployment processes</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <span class="company">Forward3D - Junior PPC Analyst</span>
+                        <span class="dates">Sep 2017 – Nov 2018</span>
+                    </div>
+                    <ul>
+                        <li>Analyzed and optimized pay-per-click campaigns for retail clients</li>
+                        <li>Automated daily reporting processes with Python</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <span class="company">briq - Research Assistant</span>
+                        <span class="dates">Apr 2016 – May 2017</span>
+                    </div>
+                    <ul>
+                        <li>Conducted data analysis with Python and R for economic research</li>
+                        <li>Contributed to publications on neuroeconomics and moral reasoning</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Education</h2>
+
+                <div class="education-item">
+                    <div class="item-header">
+                        <span class="university">Rheinische Friedrich-Wilhelms-Universität Bonn</span>
+                        <span class="dates">2014 – 2017</span>
+                    </div>
+                    <div class="degree">Master of Science in Economics</div>
+                    <p>Focus on Behavioral Economics. Thesis on "Diffusion of Responsibility".</p>
+                </div>
+
+                <div class="education-item">
+                    <div class="item-header">
+                        <span class="university">Christian-Albrechts-Universität zu Kiel</span>
+                        <span class="dates">2010 – 2013</span>
+                    </div>
+                    <div class="degree">Bachelor of Science in Business Administration</div>
+                </div>
+
+                <div class="education-item">
+                    <div class="item-header">
+                        <span class="university">Fernuniversität in Hagen</span>
+                        <span class="dates">2012 - 2019</span>
+                    </div>
+                    <div class="degree">Bachelor of Arts in Psychology</div>
+                </div>
+
+                <div class="education-item">
+                    <div class="item-header">
+                        <span class="university">Université Paris I Panthéon-Sorbonne</span>
+                        <span class="dates">2013 - 2014</span>
+                    </div>
+                    <div class="degree">Erasmus Exchange in Economics</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="column-right">
+            <div class="section">
+                <h2>Skills</h2>
+
+                <div class="skills-list">
+                    <div class="skill-category">
+                        <h3>Programming</h3>
+                        <div class="skill-items">Python, SQL, JavaScript</div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Cloud Platforms</h3>
+                        <div class="skill-items">Google Cloud Platform (GCP), Amazon Web Services (AWS)</div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Data Technologies</h3>
+                        <div class="skill-items">dbt, BigQuery, PostgreSQL, Dataflow, PySpark, Redshift, Pub/Sub, Kafka</div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>DevOps</h3>
+                        <div class="skill-items">Kubernetes, Docker, CI/CD, Grafana</div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Methods</h3>
+                        <div class="skill-items">Agile Coaching, User Story Mapping, Test Driven Development </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Languages</h2>
+                <div class="skill-category">
+                    <div class="skill-items">
+                        German (Native), English (Fluent),<br>
+                        Spanish (Good working knowledge),<br>
+                        French (Basic knowledge)
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Certifications</h2>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <span class="company">Agile Coach</span>
+                        <span class="dates">2021</span>
+                    </div>
+                    <p>Beratung Judith Andresen</p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <span class="company">AWS Certified Solutions Architect – Associate</span>
+                        <span class="dates">2020</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Publications</h2>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <span class="company">"Spreading inequality: neural computations underlying paying-it-forward reciprocity"</span>
+                        <span class="dates">2018</span>
+                    </div>
+                    <p>Social Cognitive and Affective Neuroscience</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects section stretched across the full width -->
+    <div class="projects-section">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <div class="project-item">
+                <div class="item-header">
+                    <span class="company">Photography Portfolio</span>
+                </div>
+                <p>A website showcasing photography work. Built with Svelte and Google Cloud Run.</p>
+            </div>
+
+            <div class="project-item">
+                <div class="item-header">
+                    <span class="company">Data Ingestion Framework</span>
+                </div>
+                <p>OOP batch ingestion framework built with Python on Kubernetes and GCP.</p>
+            </div>
+
+            <div class="project-item">
+                <div class="item-header">
+                    <span class="company">Jira Assistant</span>
+                </div>
+                <p>AI-based assistant for JIRA workflow optimization.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
