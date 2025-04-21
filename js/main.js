@@ -21,26 +21,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
 
-    // Add dark mode toggle functionality
-    const addDarkModeToggle = () => {
-        // Look for the header or a suitable container in the header
-        const headerContainer = document.querySelector('.header-left');
+    // Dark mode functionality
+    const initDarkMode = () => {
+        const darkModeToggle = document.getElementById('darkModeToggle');
 
-        if (headerContainer) {
-            // Create toggle button
-            const darkModeToggle = document.createElement('button');
-            darkModeToggle.className = 'dark-mode-toggle';
-            darkModeToggle.innerHTML = '🌓';
-            darkModeToggle.setAttribute('aria-label', 'Toggle dark mode');
-
-            // Create a container for the toggle to position it properly
-            const toggleContainer = document.createElement('div');
-            toggleContainer.className = 'dark-mode-toggle-container';
-            toggleContainer.appendChild(darkModeToggle);
-
-            // Insert the toggle at the top of the header
-            headerContainer.insertBefore(toggleContainer, headerContainer.firstChild);
-
+        if (darkModeToggle) {
             // Check for saved preference or system preference
             const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
             const savedTheme = localStorage.getItem('theme');
@@ -50,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             // Toggle dark mode on click
-            darkModeToggle.addEventListener('click', () => {
+            darkModeToggle.addEventListener('click', function() {
                 document.body.classList.toggle('dark-mode');
 
                 // Save preference
@@ -75,7 +60,69 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
 
-    // Initialize either the Intersection Observer or fallback
+    // Smooth scroll for down arrow
+    const setupSmoothScroll = () => {
+        const downArrow = document.querySelector('.down-arrow');
+        if (downArrow) {
+            downArrow.addEventListener('click', function() {
+                const aboutSection = document.querySelector('#about');
+                if (aboutSection) {
+                    aboutSection.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('.social-links a, .footer-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+
+                // Only apply smooth scroll for in-page links
+                if (targetId.startsWith('#')) {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    };
+
+    // Add active state to navigation when scrolling
+    const setupNavHighlighting = () => {
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.social-links a');
+
+        const updateActiveLink = () => {
+            let currentSection = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+
+                if (pageYOffset >= (sectionTop - 200)) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', updateActiveLink);
+        updateActiveLink(); // Run on page load
+    };
+
+    // Initialize functionality
     if ('IntersectionObserver' in window) {
         observeElements();
     } else {
@@ -83,64 +130,9 @@ document.addEventListener('DOMContentLoaded', function() {
         fallbackFadeIn(); // Run on page load
     }
 
-    // Smooth scroll for down arrow
-    const downArrow = document.querySelector('.down-arrow');
-    if (downArrow) {
-        downArrow.addEventListener('click', function() {
-            const aboutSection = document.querySelector('#about');
-            if (aboutSection) {
-                aboutSection.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    }
-
-    // Smooth scroll for navigation links
-    document.querySelectorAll('.social-links a, .footer-links a').forEach(link => {
-        link.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
-
-            // Only apply smooth scroll for in-page links
-            if (targetId.startsWith('#')) {
-                e.preventDefault();
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            }
-        });
-    });
-
-    // Add active state to navigation when scrolling
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.social-links a');
-
-    const updateActiveLink = () => {
-        let currentSection = '';
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-
-            if (pageYOffset >= (sectionTop - 200)) {
-                currentSection = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${currentSection}`) {
-                link.classList.add('active');
-            }
-        });
-    };
-
-    window.addEventListener('scroll', updateActiveLink);
-    updateActiveLink(); // Run on page load
-
+    initDarkMode();
+    setupSmoothScroll();
+    setupNavHighlighting();
 });
 
 // Handle print action

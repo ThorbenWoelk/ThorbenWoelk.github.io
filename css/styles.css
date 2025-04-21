@@ -233,7 +233,7 @@ header p.title {
     background-color: var(--accent-color);
 }
 
-/* Download button */
+/* Download button and dark mode toggle */
 .download-btn {
     position: fixed;
     top: 2rem;
@@ -250,6 +250,36 @@ header p.title {
 
 .download-btn:hover {
     background-color: var(--primary-color);
+}
+
+/* Dark mode toggle button */
+.dark-mode-toggle {
+    position: fixed;
+    top: 2rem;
+    right: 13rem; /* Increase distance from the right to position it properly */
+    background-color: #000;
+    color: #fff;
+    padding: 0.8rem 1rem; /* Slightly less padding to be more compact */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1rem;
+    transition: background-color var(--transition-fast);
+}
+
+.dark-mode-toggle:hover {
+    background-color: var(--primary-color);
+}
+
+/* Styles for dark mode */
+body.dark-mode {
+    --background: #1e2021;
+    --text-color: #e6e6e6;
+    --card-bg: #2c3032;
+    --light-text: #b4b8bb;
+    --shadow: rgba(0, 0, 0, 0.2);
+    --hover-shadow: rgba(0, 0, 0, 0.3);
 }
 
 /* Down arrow animation */
@@ -587,8 +617,6 @@ section.visible .basic .language-progress { width: 40%; }
     background-color: var(--accent-color);
 }
 
-
-
 /* Footer */
 footer {
     background-color: var(--primary-color);
@@ -744,6 +772,13 @@ footer {
         font-size: 0.9rem;
     }
 
+    .dark-mode-toggle {
+        top: 1rem;
+        right: 10rem; /* Adjust for mobile */
+        padding: 0.6rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
     section {
         margin: var(--spacing-lg) 0;
     }
@@ -798,35 +833,16 @@ footer {
         width: 100px;
         height: 100px;
     }
-}
 
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background: #1e2021;
-        --text-color: #e6e6e6;
-        --card-bg: #2c3032;
-        --light-text: #b4b8bb;
-        --shadow: rgba(0, 0, 0, 0.2);
-        --hover-shadow: rgba(0, 0, 0, 0.3);
-    }
-
-    .download-btn {
-        background-color: var(--accent-color);
-    }
-
-    .skill-tag {
-        background-color: rgba(169, 146, 125, 0.15);
-    }
-
-    .skill-tag:hover {
-        background-color: rgba(169, 146, 125, 0.25);
+    .dark-mode-toggle {
+        right: 8.5rem; /* Further adjust for very small screens */
+        padding: 0.5rem 0.7rem;
     }
 }
 
 /* Print styles */
 @media print {
-    .download-btn, .down-arrow, .social-links {
+    .download-btn, .down-arrow, .social-links, .dark-mode-toggle {
         display: none;
     }
 
@@ -874,53 +890,5 @@ footer {
 
     .copyright {
         border-top: 1px solid #e0e0e0;
-    }
-
-    /* Dark mode toggle button in header */
-    .dark-mode-toggle-container {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        z-index: 100;
-    }
-
-    .dark-mode-toggle {
-        background-color: var(--primary-color);
-        color: white;
-        border: none;
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        font-size: 20px;
-        cursor: pointer;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        transition: all var(--transition-fast);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .dark-mode-toggle:hover {
-        transform: rotate(30deg);
-        background-color: var(--accent-color);
-    }
-
-    /* Make sure the header has position relative for proper positioning */
-    .header-left {
-        position: relative;
-    }
-
-    /* Responsive adjustments for dark mode toggle */
-    @media (max-width: 768px) {
-        .dark-mode-toggle-container {
-            top: 15px;
-            right: 15px;
-        }
-
-        .dark-mode-toggle {
-            width: 35px;
-            height: 35px;
-            font-size: 18px;
-        }
     }
 }
