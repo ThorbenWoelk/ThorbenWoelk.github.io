@@ -1,465 +1,502 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description"
-        content="Thorben Woelk - Data & AI Engineer. Engineer by heart with experience in data, cloud, AI, and agile coaching.">
-    <title>Thorben Woelk - Curriculum Vitae</title>
-    <link rel="stylesheet" href="css/styles.css">
+        content="Thorben Woelk - Data & AI Engineer. Engineer by heart with experience in data, cloud, AI, and agile coaching." />
+    <title>Thorben Wölk | Data & AI Engineer</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- Icons (Feather) -->
+    <script defer src="https://unpkg.com/feather-icons"></script>
+
+    <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
-    <a href="assets/Thorben_Woelk_CV_2025.pdf" class="download-btn" download>Download CV</a>
-    <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">🌓</button>
+    <a class="skip-link" href="#content">Skip to content</a>
 
-    <header>
-        <div class="container header-content">
-            <div class="header-left">
-                <h1>Thorben Wölk</h1>
-                <p class="title">Freelance Data & AI Engineer</p>
-
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <span class="contact-label">Email</span>
-                        <span class="contact-value"><a
-                                href="mailto:thorben.woelk@gmail.com">thorben.woelk@gmail.com</a></span>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-label">GitHub</span>
-                        <span class="contact-value"><a href="https://github.com/ThorbenWoelk/"
-                                target="_blank">github.com/ThorbenWoelk</a></span>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-label">LinkedIn</span>
-                        <span class="contact-value"><a href="https://linkedin.com/in/thorben-wölk-7b8b47160/"
-                                target="_blank">linkedin.com/in/thorben-wölk</a></span>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-label">Location</span>
-                        <span class="contact-value">Hamburg, Germany</span>
-                    </div>
-                </div>
-
-                <div class="social-links">
-                    <a href="#about">About</a>
-                    <a href="#experience">Experience</a>
-                    <a href="#education">Education</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#projects">Projects</a>
-                </div>
+    <header class="navbar" role="banner">
+        <div class="container nav-content">
+            <a href="#" class="logo" aria-label="Home">TW.</a>
+            <nav class="desktop-nav" aria-label="Primary">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+            </nav>
+            <div class="nav-actions">
+                <button class="btn icon-btn theme-toggle" aria-label="Toggle theme" aria-pressed="false">
+                    <i data-feather="moon"></i>
+                </button>
+                <a href="assets/Thorben_Woelk_CV_2025.pdf" class="btn btn-primary" download target="_blank">
+                    Download CV <i data-feather="download"></i>
+                </a>
+                <button class="mobile-menu-btn" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+                    <i data-feather="menu"></i>
+                </button>
             </div>
-
-            <div class="header-right">
-                <div class="profile-photo-container">
-                    <img src="assets/profile-photo.jpg" alt="Thorben Woelk" class="profile-photo">
-                </div>
-            </div>
-        </div>
-
-        <div class="down-arrow">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="#465A54" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-            </svg>
         </div>
     </header>
 
-    <main>
-        <div class="container">
-            <section id="about" class="fade-in-section">
-                <h2>About Me</h2>
-                <div class="section-bg"></div>
-                <p>
-                    Experienced Data & AI Engineer and Data Platform Lead. Focusing on microservices, serverless
-                    architectures, and DataOps.
-                    Combining technical engineering expertise with an agile mindset and leadership skills to develop and
-                    implement data-driven solutions.
-                    Particularly interested in cloud architecture, AI and machine learning.
-                </p>
+    <div id="mobileMenu" class="mobile-menu" hidden>
+        <nav class="mobile-nav" aria-label="Mobile">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#education" class="nav-link">Education</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="assets/Thorben_Woelk_CV_2025.pdf" class="nav-link" download target="_blank">Download CV</a>
+        </nav>
+    </div>
 
-                <div class="highlights">
-                    <div class="highlight-item">
-                        <div class="highlight-number">10+</div>
-                        <div class="highlight-text">Years of Experience in Data</div>
-                    </div>
-                    <div class="highlight-item">
-                        <div class="highlight-number">2+</div>
-                        <div class="highlight-text">Years as Data Platform Lead</div>
-                    </div>
-                </div>
-            </section>
+    <main id="content">
+        <!-- ABOUT / HERO -->
+        <section id="about" class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content fade-in-up">
+                    <span class="eyebrow">Hello, I'm</span>
+                    <h1>Thorben Wölk</h1>
+                    <p class="subtitle">Freelance Data & AI Engineer</p>
+                    <p class="hero-description">
+                        Combining technical engineering expertise with an agile mindset and leadership skills to develop
+                        and implement data-driven solutions. Focusing on microservices, serverless architectures, and
+                        DataOps.
+                    </p>
 
-            <section id="experience" class="fade-in-section">
-                <h2>Professional Experience</h2>
-                <div class="section-bg"></div>
-
-                <div class="job">
-                    <div class="job-title">Head of Data Platform</div>
-                    <div class="company">ZEIT ONLINE</div>
-                    <div class="period">May 2023 – Aug 2025 | Hamburg, Germany</div>
-                    <ul>
-                        <li>Leading data platform strategy and development for a major online news publisher</li>
-                        <li>Managing a team of 5+ data engineers, analytics engineers, and tracking experts</li>
-                        <li>Implementing user story mapping, a Kanban process, and release management</li>
-                    </ul>
-                </div>
-
-                <div class="job">
-                    <div class="job-title">Software Engineer Big Data</div>
-                    <div class="company">ZEIT ONLINE</div>
-                    <div class="period">October 2021 – April 2023 | Hamburg, Germany</div>
-                    <ul>
-                        <li>Designed and built a scalable analytics and data science platform leveraging Google Cloud,
-                            Kubernetes, dbt Cloud, and Looker</li>
-                        <li>Developed Python apps for batch and streaming data ingestion on event-driven and pipeline
-                            architectures</li>
-                        <li>Onboarded tools and experts to the data platform in collaboration with my manager</li>
-                        <li>Implemented IaC using Terraform as well as branching concepts, CI/CD workflows, and coding
-                            best practices</li>
-                    </ul>
-                </div>
-
-                <div class="job">
-                    <div class="job-title">Software Engineer</div>
-                    <div class="company">EOS Group</div>
-                    <div class="period">January 2019 – September 2021 | Hamburg, Germany</div>
-                    <ul>
-                        <li>Redesigned and operated a machine learning platform for a fintech company</li>
-                        <li>Migrated legacy Scala monolith to a microservice architecture</li>
-                        <li>Implemented AWS-backed solutions using AWS Sagemaker, Lambda, S3, and Redshift</li>
-                        <li>Developed DevOps standards and best practices</li>
-                        <li>Automated infrastructure and ML model deployment using ansible, cdk, CloudFormation, and
-                            Jenkins</li>
-                    </ul>
-                </div>
-
-                <div class="job">
-                    <div class="job-title">Junior PPC Analyst</div>
-                    <div class="company">Forward3D</div>
-                    <div class="period">September 2017 – November 2018</div>
-                    <ul>
-                        <li>Analyzed and optimized pay-per-click campaigns for retail clients</li>
-                        <li>Automated daily and weekly reportings with Python and SQL</li>
-                        <li>Managed Google Ads campaigns for a high-fashion brand</li>
-                    </ul>
-                </div>
-
-                <div class="job">
-                    <div class="job-title">Research Assistant</div>
-                    <div class="company">briq - Institute on Behavior and Inequality</div>
-                    <div class="period">April 2016 – May 2017 | Bonn, North Rhine-Westphalia, Germany</div>
-                    <ul>
-                        <li>Conducted experiments and data analysis with Python and R for economic research projects
-                        </li>
-                        <li>Supported scientific research projects on behavioral economics and inequality</li>
-                        <li>Contributed to publications on neuroeconomics and moral reasoning</li>
-                    </ul>
-                </div>
-
-                <div class="job">
-                    <div class="job-title">Student Assistant</div>
-                    <div class="company">CENS - Center for Economics and Neuroscience</div>
-                    <div class="period">September 2014 – April 2016 | Bonn, North Rhine-Westphalia, Germany</div>
-                    <ul>
-                        <li>Supported scientific studies on economic decision-making</li>
-                        <li>Created research documents with LaTeX for academic publications</li>
-                        <li>Processed and analyzed experimental data for behavioral economics studies</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section id="education" class="fade-in-section">
-                <h2>Education</h2>
-                <div class="section-bg"></div>
-
-                <div class="education">
-                    <div class="degree">Master of Science in Economics</div>
-                    <div class="institution">Rheinische Friedrich-Wilhelms-Universität Bonn</div>
-                    <div class="period">2014 – 2017</div>
-                    <p>Focus on Behavioral Economics. Thesis on "Diffusion of Responsibility".</p>
-                </div>
-
-                <div class="education">
-                    <div class="degree">Bachelor of Science in Business Administration</div>
-                    <div class="institution">Christian-Albrechts-Universität zu Kiel</div>
-                    <div class="period">2010 – 2013</div>
-                </div>
-
-                <div class="education">
-                    <div class="degree">Bachelor of Arts in Psychology</div>
-                    <div class="institution">Fernuniversität in Hagen</div>
-                    <div class="period">2012 - 2019</div>
-                </div>
-
-                <div class="education">
-                    <div class="degree">Erasmus Exchange in Economics</div>
-                    <div class="institution">Université Paris I Panthéon-Sorbonne</div>
-                    <div class="period">2013 - 2014</div>
-                </div>
-            </section>
-
-            <section id="certifications" class="fade-in-section">
-                <h2>Certifications</h2>
-                <div class="section-bg"></div>
-
-                <div class="certification">
-                    <div class="job-title">Agile Coach</div>
-                    <div class="company">Beratung Judith Andresen</div>
-                    <div class="period">July 2021</div>
-                    <p>Professional certification in Agile coaching methodologies and team facilitation.</p>
-                </div>
-
-                <div class="certification">
-                    <div class="job-title">AWS Certified Solutions Architect – Associate (SAA-C02)</div>
-                    <div class="company">Amazon Web Services (AWS)</div>
-                    <div class="period">December 2020</div>
-                    <p>Expertise in designing and deploying scalable systems on AWS.</p>
-                </div>
-            </section>
-
-            <section id="publications" class="fade-in-section">
-                <h2>Publications</h2>
-                <div class="section-bg"></div>
-
-                <div class="publication">
-                    <div class="job-title">"Spreading inequality: neural computations underlying paying-it-forward
-                        reciprocity"</div>
-                    <div class="company">Social Cognitive and Affective Neuroscience</div>
-                    <div class="period">January 2018</div>
-                    <p>Co-authored research paper exploring the neural basis of economic decision-making and moral
-                        behavior.</p>
-                </div>
-            </section>
-
-            <section id="skills" class="fade-in-section">
-                <h2>Skills & Languages</h2>
-                <div class="section-bg"></div>
-
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>Technical Skills</h3>
-                        <ul>
-                            <li>
-                                <span class="skill-name">Programming Languages</span>
-                                <span class="skill-description">Main general-purpose languages used in my work</span>
-                                <div class="skill-tags">
-                                    <span class="skill-tag">Python</span>
-                                    <span class="skill-tag">SQL</span>
-                                    <span class="skill-tag">Jinja</span>
-                                    <span class="skill-tag">JavaScript/TypeScript</span>
-                                </div>
-                            </li>
-                            <li>
-                                <span class="skill-name">Cloud Platforms</span>
-                                <div class="skill-tags">
-                                    <span class="skill-tag">Google Cloud Platform (GCP)</span>
-                                    <span class="skill-tag">Amazon Web Services (AWS)</span>
-                                </div>
-                            </li>
-                            <li>
-                                <span class="skill-name">Data Technologies</span>
-                                <span class="skill-description">Storing, processing, analyzing, and moving data</span>
-                                <div class="skill-tags">
-                                    <span class="skill-tag">BigQuery</span>
-                                    <span class="skill-tag">PostgreSQL</span>
-                                    <span class="skill-tag">dbt core</span>
-                                    <span class="skill-tag">dbt Cloud</span>
-                                    <span class="skill-tag">Dataflow</span>
-                                    <span class="skill-tag">PySpark</span>
-                                    <span class="skill-tag">Pub/Sub</span>
-                                    <span class="skill-tag">Kafka</span>
-                                    <span class="skill-tag">Redshift</span>
-                                    <span class="skill-tag">Looker</span>
-                                    <span class="skill-tag">LookML</span>
-                                    <span class="skill-tag">Neo4j Cypher</span>
-                                </div>
-                            </li>
-                            <li>
-                                <span class="skill-name">Machine Learning and AI</span>
-                                <span class="skill-description">Concepts and tools for ML and AI-based
-                                    applications</span>
-                                <div class="skill-tags">
-                                    <span class="skill-tag">MLOps</span>
-                                    <span class="skill-tag">AWS Sagemaker</span>
-                                    <span class="skill-tag">Cursor</span>
-                                    <span class="skill-tag">Claude Code</span>
-                                    <span class="skill-tag">Anthropic API</span>
-                                    <span class="skill-tag">OpenAI API</span>
-                                    <span class="skill-tag">pydantic-ai</span>
-                                </div>
-                            </li>
-                            <li>
-                                <span class="skill-name">DevOps, CI/CD</span>
-                                <span class="skill-description">Deploying and operating applications in a cloud
-                                    environments</span>
-                                <div class="skill-tags">
-                                    <span class="skill-tag">Kubernetes</span>
-                                    <span class="skill-tag">Docker</span>
-                                    <span class="skill-tag">GitHub Actions</span>
-                                    <span class="skill-tag">Terraform</span>
-                                    <span class="skill-tag">Ansible</span>
-                                    <span class="skill-tag">cdk</span>
-                                    <span class="skill-tag">CloudFormation</span>
-                                    <span class="skill-tag">Grafana</span>
-                                    <span class="skill-tag">GCP Monitoring</span>
-                                </div>
-                            </li>
-                            <li>
-                                <span class="skill-name">Methods</span>
-                                <span class="skill-description">Agile Coaching, User Story Mapping, Test Driven
-                                    Development</span>
-                                <div class="skill-tags">
-                                    <span class="skill-tag">Agile Coaching</span>
-                                    <span class="skill-tag">User Story Mapping</span>
-                                    <span class="skill-tag">Test Driven Development</span>
-                                </div>
-                            </li>
-                        </ul>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">2+</span>
+                            <span class="stat-label">Years Lead</span>
+                        </div>
                     </div>
 
-                    <div class="skill-category">
-                        <h3>Languages</h3>
-                        <ul>
-                            <li class="language-item native">
-                                <span class="language-name">German</span>
-                                <span class="language-level">Native</span>
-                                <div class="language-bar">
-                                    <div class="language-progress"></div>
-                                </div>
-                            </li>
-                            <li class="language-item fluent">
-                                <span class="language-name">English</span>
-                                <span class="language-level">Fluent</span>
-                                <div class="language-bar">
-                                    <div class="language-progress"></div>
-                                </div>
-                            </li>
-                            <li class="language-item good">
-                                <span class="language-name">Spanish</span>
-                                <span class="language-level">Good working knowledge</span>
-                                <div class="language-bar">
-                                    <div class="language-progress"></div>
-                                </div>
-                            </li>
-                            <li class="language-item basic">
-                                <span class="language-name">French</span>
-                                <span class="language-level">Basic</span>
-                                <div class="language-bar">
-                                    <div class="language-progress"></div>
-                                </div>
-                            </li>
-                        </ul>
+                    <div class="social-links-hero">
+                        <a href="mailto:thorben.woelk@gmail.com" aria-label="Email"><i data-feather="mail"></i></a>
+                        <a href="https://github.com/ThorbenWoelk/" target="_blank" aria-label="GitHub"><i
+                                data-feather="github"></i></a>
+                        <a href="https://linkedin.com/in/thorben-wölk-7b8b47160/" target="_blank"
+                            aria-label="LinkedIn"><i data-feather="linkedin"></i></a>
+                    </div>
+                    <div class="location">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        Hamburg, Germany
                     </div>
                 </div>
-            </section>
 
-            <section id="projects" class="fade-in-section">
-                <h2>Projects</h2>
-                <div class="section-bg"></div>
+                <figure class="avatar fade-in-up">
+                    <img src="assets/profile-photo.jpg" alt="Portrait of Thorben Wölk" loading="eager" />
+                </figure>
+            </div>
+        </section>
 
+        <!-- EXPERIENCE -->
+        <section id="experience" class="section">
+            <div class="container">
+                <h2 class="section-title">Professional Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item fade-in-up">
+                        <div class="timeline-date">May 2023 – Aug 2025</div>
+                        <div class="timeline-content glass-card">
+                            <h3>Head of Data Platform</h3>
+                            <h4>ZEIT ONLINE</h4>
+                            <p class="location-tag">Hamburg, Germany</p>
+                            <ul>
+                                <li>Leading data platform strategy and development for a major online news publisher
+                                </li>
+                                <li>Managing a team of 5+ data engineers, analytics engineers, and tracking experts</li>
+                                <li>Implementing user story mapping, a Kanban process, and release management</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item fade-in-up">
+                        <div class="timeline-date">Oct 2021 – Apr 2023</div>
+                        <div class="timeline-content glass-card">
+                            <h3>Software Engineer Big Data</h3>
+                            <h4>ZEIT ONLINE</h4>
+                            <p class="location-tag">Hamburg, Germany</p>
+                            <ul>
+                                <li>Designed and built a scalable analytics and data science platform leveraging Google
+                                    Cloud, Kubernetes, dbt Cloud, and Looker</li>
+                                <li>Developed Python apps for batch and streaming data ingestion on event-driven and
+                                    pipeline architectures</li>
+                                <li>Onboarded tools and experts to the data platform in collaboration with my manager
+                                </li>
+                                <li>Implemented IaC using Terraform as well as branching concepts, CI/CD workflows, and
+                                    coding best practices</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item fade-in-up">
+                        <div class="timeline-date">Jan 2019 – Sep 2021</div>
+                        <div class="timeline-content glass-card">
+                            <h3>Software Engineer</h3>
+                            <h4>EOS Group</h4>
+                            <p class="location-tag">Hamburg, Germany</p>
+                            <ul>
+                                <li>Redesigned and operated a machine learning platform for a fintech company</li>
+                                <li>Migrated legacy Scala monolith to a microservice architecture</li>
+                                <li>Implemented AWS-backed solutions using AWS Sagemaker, Lambda, S3, and Redshift</li>
+                                <li>Developed DevOps standards and best practices</li>
+                                <li>Automated infrastructure and ML model deployment using ansible, cdk, CloudFormation,
+                                    and Jenkins</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item fade-in-up">
+                        <div class="timeline-date">Sep 2017 – Nov 2018</div>
+                        <div class="timeline-content glass-card">
+                            <h3>Junior PPC Analyst</h3>
+                            <h4>Forward3D</h4>
+                            <ul>
+                                <li>Analyzed and optimized pay-per-click campaigns for retail clients</li>
+                                <li>Automated daily and weekly reportings with Python and SQL</li>
+                                <li>Managed Google Ads campaigns for a high-fashion brand</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item fade-in-up">
+                        <div class="timeline-date">Apr 2016 – May 2017</div>
+                        <div class="timeline-content glass-card">
+                            <h3>Research Assistant</h3>
+                            <h4>briq - Institute on Behavior and Inequality</h4>
+                            <p class="location-tag">Bonn, Germany</p>
+                            <ul>
+                                <li>Conducted experiments and data analysis with Python and R for economic research
+                                    projects</li>
+                                <li>Supported scientific research projects on behavioral economics and inequality</li>
+                                <li>Contributed to publications on neuroeconomics and moral reasoning</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item fade-in-up">
+                        <div class="timeline-date">Sep 2014 – Apr 2016</div>
+                        <div class="timeline-content glass-card">
+                            <h3>Student Assistant</h3>
+                            <h4>CENS - Center for Economics and Neuroscience</h4>
+                            <p class="location-tag">Bonn, Germany</p>
+                            <ul>
+                                <li>Supported scientific studies on economic decision-making</li>
+                                <li>Created research documents with LaTeX for academic publications</li>
+                                <li>Processed and analyzed experimental data for behavioral economics studies</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section id="education" class="section">
+            <div class="container">
+                <h2 class="section-title">Education</h2>
+                <div class="skill-tree-container">
+                    <!-- Level 3: The Apex -->
+                    <div class="tree-level level-apex">
+                        <div class="tree-node apex-node fade-in-up" data-type="master">
+                            <a href="https://www.econ.uni-bonn.de/en/study-programs/study-programs/master/master-economics"
+                                target="_blank" class="node-content glass-card"
+                                style="display: block; text-decoration: none; color: inherit;">
+                                <div class="node-glow"></div>
+                                <div class="node-header">
+                                    <span class="year">2014 – 2017</span>
+                                    <h3>M.Sc. Economics</h3>
+                                </div>
+                                <div class="node-details">
+                                    <h4>Rheinische Friedrich-Wilhelms-Universität Bonn</h4>
+                                    <p>Focus on Behavioral Economics. Thesis on "Diffusion of Responsibility".</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Level 2: The Special Branch -->
+                    <div class="tree-level level-branch">
+                        <div class="tree-node special-node fade-in-up" data-type="exchange">
+                            <div class="connector-line"></div>
+                            <a href="https://www.pantheonsorbonne.fr/en/international" target="_blank"
+                                class="node-content glass-card"
+                                style="display: block; text-decoration: none; color: inherit;">
+                                <div class="node-glow"></div>
+                                <div class="node-header">
+                                    <span class="year">2013 – 2014</span>
+                                    <h3>Erasmus Exchange <i data-feather="flag" class="flag-icon"></i></h3>
+                                </div>
+                                <div class="node-details">
+                                    <h4>Université Paris I Panthéon-Sorbonne</h4>
+                                    <p>Economics</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Level 1: The Foundation -->
+                    <div class="tree-level level-base">
+                        <div class="tree-node base-node fade-in-up" data-type="bachelor">
+                            <div class="connector-line"></div>
+                            <a href="https://www.studium.uni-kiel.de/de/studienangebot/studienfaecher/betriebswirtschaftslehre-ba"
+                                target="_blank" class="node-content glass-card"
+                                style="display: block; text-decoration: none; color: inherit;">
+                                <div class="node-glow"></div>
+                                <div class="node-header">
+                                    <span class="year">2010 – 2013</span>
+                                    <h3>B.Sc. Business Admin</h3>
+                                </div>
+                                <div class="node-details">
+                                    <h4>Christian-Albrechts-Universität zu Kiel</h4>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="tree-node base-node fade-in-up" data-type="bachelor">
+                            <a href="http://fernuni-hagen.de/psychologie/studium/portale/bscpsy/" target="_blank"
+                                class="node-content glass-card"
+                                style="display: block; text-decoration: none; color: inherit;">
+                                <div class="node-glow"></div>
+                                <div class="node-header">
+                                    <span class="year">2012 – 2019</span>
+                                    <h3>B.A. Psychology</h3>
+                                </div>
+                                <div class="node-details">
+                                    <h4>Fernuniversität in Hagen</h4>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="section-title">Skills & Tech</h2>
+                <div class="skills-wrapper">
+                    <div class="skill-group fade-in-up">
+                        <h3><i data-feather="code"></i> Technical Stack</h3>
+                        <div class="skill-list">
+                            <div class="skill-category-card glass-card">
+                                <h4>Languages</h4>
+                                <div class="tags">
+                                    <span>Python</span>
+                                    <span>SQL</span>
+                                    <span>Jinja</span>
+                                    <span>JavaScript/TypeScript</span>
+                                </div>
+                            </div>
+
+                            <div class="skill-category-card glass-card">
+                                <h4>Cloud & Infrastructure</h4>
+                                <div class="tags">
+                                    <span>GCP</span>
+                                    <span>AWS</span>
+                                    <span>Kubernetes</span>
+                                    <span>Docker</span>
+                                    <span>Terraform</span>
+                                    <span>Ansible</span>
+                                    <span>CDK</span>
+                                    <span>CloudFormation</span>
+                                </div>
+                            </div>
+
+                            <div class="skill-category-card glass-card">
+                                <h4>Data & Operations</h4>
+                                <div class="tags">
+                                    <span>BigQuery</span>
+                                    <span>PostgreSQL</span>
+                                    <span>dbt core/cloud</span>
+                                    <span>Dataflow</span>
+                                    <span>PySpark</span>
+                                    <span>Pub/Sub</span>
+                                    <span>Kafka</span>
+                                    <span>Redshift</span>
+                                    <span>Looker/LookML</span>
+                                </div>
+                            </div>
+
+                            <div class="skill-category-card glass-card">
+                                <h4>AI & ML</h4>
+                                <div class="tags">
+                                    <span>MLOps</span>
+                                    <span>AWS Sagemaker</span>
+                                    <span>Cursor</span>
+                                    <span>Claude Code</span>
+                                    <span>OpenAI/Anthropic API</span>
+                                    <span>pydantic-ai</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-group fade-in-up" style="margin-top: 2rem;">
+                        <div class="flex-row-desktop">
+                            <div style="flex: 1;">
+                                <h3><i data-feather="award"></i> Certifications</h3>
+                                <div class="glass-card">
+                                    <ul class="list-unstyled" style="margin: 0;">
+                                        <li><a href="https://learn.deeplearning.ai/certificates/d8ee203e-c9ff-454f-b9da-5860c114c53d?usp=sharing"
+                                                target="_blank" rel="noopener"><strong>Agentic AI</strong> -
+                                                DeepLearning.AI
+                                                (Course Certificate, 2025)</a></li>
+                                        <li><strong>Agile Coach</strong> - Beratung Judith Andresen (2021)</li>
+                                        <li><strong>AWS Certified Solutions Architect</strong> - Associate (2020)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div style="flex: 1;">
+                                <h3><i data-feather="users"></i> Methodologies</h3>
+                                <div class="glass-card">
+                                    <ul class="list-unstyled" style="margin: 0;">
+                                        <li>Agile Coaching</li>
+                                        <li>User Story Mapping</li>
+                                        <li>Test Driven Development</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-group fade-in-up" style="margin-top: 2rem;">
+                        <h3><i data-feather="message-circle"></i> Languages</h3>
+                        <div class="languages-grid">
+                            <div class="language-item glass-card">
+                                <span>German</span>
+                                <span class="level">Native</span>
+                            </div>
+                            <div class="language-item glass-card">
+                                <span>English</span>
+                                <span class="level">Fluent</span>
+                            </div>
+                            <div class="language-item glass-card">
+                                <span>Spanish</span>
+                                <span class="level">Good</span>
+                            </div>
+                            <div class="language-item glass-card">
+                                <span>French</span>
+                                <span class="level">Basic</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title">Selected Projects</h2>
                 <div class="projects-grid">
-                    <div class="project">
-                        <div class="project-title">Data Ingestion Framework</div>
-                        <div class="project-description">An object-oriented batch ingestion framework built with Python
-                            on Kubernetes and GCP to reduce time to market of available data sources.</div>
-                        <div class="project-tech">
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">GCP</span>
-                            <span class="skill-tag">Kubernetes</span>
+                    <div class="project-card glass-card fade-in-up">
+                        <div class="project-header">
+                            <i data-feather="server" class="project-icon"></i>
+                            <div class="project-links">
+                                <span class="tag">Property of DIE ZEIT</span>
+                            </div>
                         </div>
-                        <a href="#" class="project-link">Property of DIE ZEIT</a>
+                        <h3>Data Ingestion Framework</h3>
+                        <p>An object-oriented batch ingestion framework built with Python on Kubernetes and GCP to
+                            reduce time to market of available data sources.</p>
+                        <div class="tech-stack">
+                            <span>Python</span>
+                            <span>GCP</span>
+                            <span>Kubernetes</span>
+                        </div>
                     </div>
 
-                    <div class="project">
-                        <div class="project-title">Data Pipeline Manager</div>
-                        <div class="project-description">An API for engineers to manage and operate data ingestion jobs.
+                    <div class="project-card glass-card fade-in-up">
+                        <div class="project-header">
+                            <i data-feather="terminal" class="project-icon"></i>
+                            <div class="project-links">
+                                <span class="tag">Property of DIE ZEIT</span>
+                            </div>
                         </div>
-                        <div class="project-tech">
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">GCP</span>
-                            <span class="skill-tag">API</span>
+                        <h3>Data Pipeline Manager</h3>
+                        <p>An API for engineers to manage and operate data ingestion jobs.</p>
+                        <div class="tech-stack">
+                            <span>Python</span>
+                            <span>GCP</span>
+                            <span>API</span>
                         </div>
-                        <a href="#" class="project-link">Property of DIE ZEIT</a>
                     </div>
 
-                    <div class="project">
-                        <div class="project-title">Jira Assistant</div>
-                        <div class="project-description">AI-based assistant for JIRA workflow optimization.</div>
-                        <div class="project-tech">
-                            <span class="skill-tag">Claude AI</span>
-                            <span class="skill-tag">JIRA</span>
+                    <a href="https://totos-photos-673062863574.us-central1.run.app/#current" target="_blank"
+                        class="project-card glass-card fade-in-up">
+                        <div class="project-header">
+                            <i data-feather="camera" class="project-icon"></i>
+                            <div class="project-links">
+                                <i data-feather="external-link"></i>
+                            </div>
                         </div>
-                        <a href="https://github.com/ThorbenWoelk/jira-assistant" target="_blank"
-                            class="project-link">Request access on GitHub</a>
-                    </div>
-
-                    <div class="project">
-                        <div class="project-title">Photography Portfolio</div>
-                        <div class="project-description">A website showcasing photography work. Built with Svelte on
-                            Google Cloud Run.</div>
-                        <div class="project-tech">
-                            <span class="skill-tag">Svelte</span>
-                            <span class="skill-tag">Google Cloud Run</span>
+                        <h3>Photography Portfolio</h3>
+                        <p>A website showcasing photography work. Built with Svelte on Google Cloud Run.</p>
+                        <div class="tech-stack">
+                            <span>Svelte</span>
+                            <span>Google Cloud Run</span>
                         </div>
-                        <a href="https://totos-photos-673062863574.us-central1.run.app/#current" target="_blank"
-                            class="project-link">View Portfolio</a>
-                    </div>
-
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <h3>Thorben Woelk</h3>
-                    <p>Head of Data Platform</p>
-                    <p><a href="mailto:thorben.woelk@gmail.com">thorben.woelk@gmail.com</a></p>
-                </div>
-
-                <div class="footer-links">
-                    <a href="#about">About</a>
-                    <a href="#experience">Experience</a>
-                    <a href="#education">Education</a>
-                    <a href="#skills">Skills</a>
-                    <a href="#projects">Projects</a>
-                </div>
-
-                <div class="footer-social">
-                    <a href="https://linkedin.com/in/thorben-wölk-7b8b47160/" target="_blank" class="social-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8Z"
-                                stroke="#5C6761" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M6 9H2V21H6V9Z" stroke="#5C6761" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path
-                                d="M4 6C5.10457 6 6 5.10457 6 4C6 2.89543 5.10457 2 4 2C2.89543 2 2 2.89543 2 4C2 5.10457 2.89543 6 4 6Z"
-                                stroke="#5C6761" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </a>
-                    <a href="https://github.com/ThorbenWoelk" target="_blank" class="social-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M9 19C4 20.5 4 16.5 2 16M16 22V18.13C16.0375 17.6532 15.9731 17.1738 15.811 16.7238C15.6489 16.2738 15.3929 15.8634 15.06 15.52C18.2 15.17 21.5 13.98 21.5 8.52C21.4997 7.12383 20.9627 5.7812 20 4.77C20.4559 3.54851 20.4236 2.19835 19.91 0.999999C19.91 0.999999 18.73 0.649999 16 2.48C13.708 1.85882 11.292 1.85882 9 2.48C6.27 0.649999 5.09 0.999999 5.09 0.999999C4.57638 2.19835 4.54414 3.54851 5 4.77C4.03013 5.7887 3.49252 7.14346 3.5 8.55C3.5 13.97 6.8 15.16 9.94 15.55C9.611 15.89 9.35726 16.2954 9.19531 16.7399C9.03335 17.1844 8.96681 17.6581 9 18.13V22"
-                                stroke="#5C6761" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
                     </a>
                 </div>
             </div>
+        </section>
 
-            <div class="copyright">
-                <p>&copy; 2025 Thorben Woelk. All rights reserved.</p>
-                <p class="last-updated">Last updated: April 2025</p>
+        <!-- PUBLICATION -->
+        <section class="section">
+            <div class="container">
+                <a href="https://pubmed.ncbi.nlm.nih.gov/29897606/" target="_blank" class="glass-card fade-in-up"
+                    style="display: block;">
+                    <h3><i data-feather="book-open"></i> Publication</h3>
+                    <p><strong>"Spreading inequality: neural computations underlying paying-it-forward
+                            reciprocity"</strong></p>
+                    <p>Social Cognitive and Affective Neuroscience (Jan 2018)</p>
+                    <p class="small">Co-authored research paper exploring the neural basis of economic decision-making
+                        and moral behavior.</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-left">
+                <h3>Thorben Wölk</h3>
+                <p>Freelance Data & AI Engineer</p>
+            </div>
+            <div class="footer-right">
+                <div class="footer-socials">
+                    <a href="mailto:thorben.woelk@gmail.com"><i data-feather="mail"></i></a>
+                    <a href="https://linkedin.com/in/thorben-wölk-7b8b47160/" target="_blank"><i
+                            data-feather="linkedin"></i></a>
+                    <a href="https://github.com/ThorbenWoelk" target="_blank"><i data-feather="github"></i></a>
+                </div>
+                <p>&copy; <span id="year">2025</span> Thorben Wölk. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script defer src="js/main.js"></script>
+    <script>
+        feather.replace();
+    </script>
 </body>
 
 </html>

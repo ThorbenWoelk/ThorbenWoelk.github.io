@@ -1,148 +1,100 @@
-/**
- * Main JavaScript for Thorben Woelk CV website
- */
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Scroll fade-in effect using Intersection Observer API
-    const observeElements = () => {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.1 // When 10% of the element is visible
-        });
-
-        // Observe all sections
-        document.querySelectorAll('.fade-in-section').forEach(section => {
-            observer.observe(section);
-        });
-    };
-
-    // Dark mode functionality
-    const initDarkMode = () => {
-        const darkModeToggle = document.getElementById('darkModeToggle');
-
-        if (darkModeToggle) {
-            // Check for saved preference or system preference
-            const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const savedTheme = localStorage.getItem('theme');
-
-            if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme)) {
-                document.body.classList.add('dark-mode');
-            }
-
-            // Toggle dark mode on click
-            darkModeToggle.addEventListener('click', function() {
-                document.body.classList.toggle('dark-mode');
-
-                // Save preference
-                if (document.body.classList.contains('dark-mode')) {
-                    localStorage.setItem('theme', 'dark');
-                } else {
-                    localStorage.setItem('theme', 'light');
-                }
-            });
-        }
-    };
-
-    // Fallback for browsers that don't support Intersection Observer
-    const fallbackFadeIn = () => {
-        document.querySelectorAll('.fade-in-section').forEach(section => {
-            const sectionTop = section.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-
-            if (sectionTop < windowHeight * 0.85) {
-                section.classList.add('visible');
-            }
-        });
-    };
-
-    // Smooth scroll for down arrow
-    const setupSmoothScroll = () => {
-        const downArrow = document.querySelector('.down-arrow');
-        if (downArrow) {
-            downArrow.addEventListener('click', function() {
-                const aboutSection = document.querySelector('#about');
-                if (aboutSection) {
-                    aboutSection.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        }
-
-        // Smooth scroll for navigation links
-        document.querySelectorAll('.social-links a, .footer-links a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href');
-
-                // Only apply smooth scroll for in-page links
-                if (targetId.startsWith('#')) {
-                    e.preventDefault();
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
-                }
-            });
-        });
-    };
-
-    // Add active state to navigation when scrolling
-    const setupNavHighlighting = () => {
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.social-links a');
-
-        const updateActiveLink = () => {
-            let currentSection = '';
-
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-
-                if (pageYOffset >= (sectionTop - 200)) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${currentSection}`) {
-                    link.classList.add('active');
-                }
-            });
-        };
-
-        window.addEventListener('scroll', updateActiveLink);
-        updateActiveLink(); // Run on page load
-    };
-
-    // Initialize functionality
-    if ('IntersectionObserver' in window) {
-        observeElements();
-    } else {
-        window.addEventListener('scroll', fallbackFadeIn);
-        fallbackFadeIn(); // Run on page load
+document.addEventListener('DOMContentLoaded', () => {
+  // 1) Animate in on view
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
     }
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in-up').forEach(el => io.observe(el));
 
-    initDarkMode();
-    setupSmoothScroll();
-    setupNavHighlighting();
-});
+  // 2) Sticky header background after scroll
+  const navbar = document.querySelector('.navbar');
+  const onScroll = () => {
+    if (window.scrollY > 24) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
-// Handle print action
-document.querySelector('.download-btn')?.addEventListener('click', function(e) {
-    // Check if there's a PDF file attached to the link
-    const hasPdf = this.getAttribute('href')?.endsWith('.pdf');
-
-    // If no PDF, show print dialog instead
-    if (!hasPdf) {
-        e.preventDefault();
-        window.print();
+  // 3) Active section link highlighting
+  const sectionIds = ['about', 'experience', 'education', 'skills', 'projects'];
+  const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+  const navLinks = Array.from(document.querySelectorAll('.desktop-nav .nav-link'));
+  const setActive = () => {
+    let current = sectionIds[0];
+    for (const s of sections) {
+      const rect = s.getBoundingClientRect();
+      if (rect.top <= 120) current = s.id;
     }
+    navLinks.forEach(a => a.setAttribute('aria-current', a.getAttribute('href') === `#${current}` ? 'true' : 'false'));
+  };
+  window.addEventListener('scroll', setActive, { passive: true });
+  setActive();
+
+  // 4) Theme toggle (system-aware)
+  const root = document.documentElement;
+  const themeBtn = document.querySelector('.theme-toggle');
+  const lsKey = 'theme';
+  const applyTheme = (t) => {
+    if (t === 'light') root.setAttribute('data-theme', 'light');
+    else root.removeAttribute('data-theme');
+    themeBtn?.setAttribute('aria-pressed', t === 'light' ? 'true' : 'false');
+  };
+  const systemDark = matchMedia('(prefers-color-scheme: dark)');
+  const saved = localStorage.getItem(lsKey);
+  applyTheme(saved || (systemDark.matches ? 'dark' : 'dark'));
+  systemDark.addEventListener('change', (e) => {
+    if (!localStorage.getItem(lsKey)) applyTheme(e.matches ? 'dark' : 'light');
+  });
+  themeBtn?.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+    const next = current === 'light' ? 'dark' : 'light';
+    if (next === 'dark') localStorage.removeItem(lsKey); else localStorage.setItem(lsKey, next);
+    applyTheme(next);
+  });
+
+  // 5) Mobile menu (accessible)
+  const menuBtn = document.querySelector('.mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const focusableSelector = 'a, button, [tabindex]';
+  let lastFocused = null;
+
+  const openMenu = () => {
+    lastFocused = document.activeElement;
+    mobileMenu.removeAttribute('hidden');
+    menuBtn.setAttribute('aria-expanded', 'true');
+    const first = mobileMenu.querySelector(focusableSelector);
+    first?.focus();
+    document.addEventListener('keydown', trap);
+  };
+  const closeMenu = () => {
+    mobileMenu.setAttribute('hidden', '');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    document.removeEventListener('keydown', trap);
+    lastFocused?.focus();
+  };
+  const trap = (e) => {
+    if (e.key === 'Escape') return closeMenu();
+    if (e.key !== 'Tab') return;
+    const items = Array.from(mobileMenu.querySelectorAll(focusableSelector)).filter(el => !el.hasAttribute('disabled'));
+    if (!items.length) return;
+    const first = items[0];
+    const last = items[items.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  };
+  menuBtn?.addEventListener('click', () => {
+    if (mobileMenu.hasAttribute('hidden')) openMenu(); else closeMenu();
+  });
+  mobileMenu?.addEventListener('click', (e) => {
+    if (e.target === mobileMenu) closeMenu();
+  });
+  mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+  // 6) Footer year
+  const yearSpan = document.getElementById('year');
+  if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 });
