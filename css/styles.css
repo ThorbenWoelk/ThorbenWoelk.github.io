@@ -145,12 +145,25 @@ body::before {
   position: fixed;
   left: 1rem;
   top: 1rem;
-  width: auto;
-  height: auto;
-  padding: .5rem .75rem;
-  background: var(--bg-elev);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--text) !important;
+  background: transparent;
   border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle svg {
+  stroke: currentColor !important;
+  width: 20px;
+  height: 20px;
+}
+
+.icon-btn:hover {
+  background: var(--bg-elev);
 }
 
 /* Navbar */
@@ -854,8 +867,12 @@ body::before {
     max-width: 400px;
   }
 
-  /* Always show details on mobile? Or keep tap-to-reveal via hover state (works on tap in iOS) */
-  /* Let's keep hover state which translates to 'tap' on mobile usually */
+  /* Always show details on mobile to avoid tap/hover issues */
+  .node-details {
+    max-height: none;
+    opacity: 1;
+    margin-top: 1rem;
+  }
 }
 
 /* Footer */
@@ -913,25 +930,65 @@ footer {
 /* Responsive */
 @media (max-width: 960px) {
 
-  /* Keep topbar usable: compact, scrollable link row */
+  /* Hide desktop nav */
   .desktop-nav {
-    display: flex;
-    gap: 1rem;
-    overflow-x: auto;
-    white-space: nowrap;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .desktop-nav::-webkit-scrollbar {
     display: none;
   }
 
   .mobile-menu-btn {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: var(--text) !important;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 100;
   }
 
-  /* Save space: hide big CTA, still available in mobile menu */
+  .mobile-menu-btn svg {
+    stroke: var(--text) !important;
+    width: 24px;
+    height: 24px;
+  }
+
+  .mobile-menu-btn:hover {
+    color: var(--primary);
+  }
+
+  /* Mobile Menu Overlay */
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    top: var(--nav-h);
+    background: var(--bg);
+    z-index: 49;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  /* When active (handled by JS removing 'hidden' attribute or adding class) */
+  .mobile-menu.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    font-size: 1.5rem;
+  }
+
+  /* Save space: hide big CTA in navbar, but keep icon button */
   .nav-actions .btn-primary {
     display: none;
   }
@@ -942,6 +999,7 @@ footer {
 
   .avatar {
     justify-self: start;
+    margin-bottom: 2rem;
   }
 
   .footer-content {

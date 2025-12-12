@@ -65,17 +65,36 @@ document.addEventListener('DOMContentLoaded', () => {
   const openMenu = () => {
     lastFocused = document.activeElement;
     mobileMenu.removeAttribute('hidden');
+    // Small delay to allow display:flex to apply before opacity transition
+    setTimeout(() => {
+      mobileMenu.classList.add('is-open');
+    }, 10);
     menuBtn.setAttribute('aria-expanded', 'true');
+    menuBtn.innerHTML = '<i data-feather="x"></i>';
+    feather.replace(); // Re-render icons
+
     const first = mobileMenu.querySelector(focusableSelector);
     first?.focus();
     document.addEventListener('keydown', trap);
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
   };
+
   const closeMenu = () => {
-    mobileMenu.setAttribute('hidden', '');
+    mobileMenu.classList.remove('is-open');
     menuBtn.setAttribute('aria-expanded', 'false');
+    menuBtn.innerHTML = '<i data-feather="menu"></i>';
+    feather.replace(); // Re-render icons
+    document.body.style.overflow = '';
+
+    // Wait for transition
+    setTimeout(() => {
+      mobileMenu.setAttribute('hidden', '');
+    }, 300);
+
     document.removeEventListener('keydown', trap);
     lastFocused?.focus();
   };
+
   const trap = (e) => {
     if (e.key === 'Escape') return closeMenu();
     if (e.key !== 'Tab') return;
@@ -86,12 +105,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
     else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   };
+
   menuBtn?.addEventListener('click', () => {
-    if (mobileMenu.hasAttribute('hidden')) openMenu(); else closeMenu();
+    const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+    if (expanded) closeMenu(); else openMenu();
   });
+
   mobileMenu?.addEventListener('click', (e) => {
     if (e.target === mobileMenu) closeMenu();
   });
+
   mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 
   // 6) Footer year
