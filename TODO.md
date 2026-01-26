@@ -1,2 +1,0 @@
-- [ ] Enhance CV styling
-- [ ] Add blog section
