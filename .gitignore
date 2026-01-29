@@ -3,6 +3,8 @@ node_modules/
 
 # app specific
 images/*
+applications/*
+PROMPT.md
 
 # pycharm
 .idea/
