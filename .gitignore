@@ -3,6 +3,7 @@ node_modules/
 
 # app specific
 images/*
+applications/
 applications/*
 PROMPT.md
 
@@ -42,3 +43,4 @@ Thumbs.db
 .vscode/
 *.sublime-project
 *.sublime-workspace
+/applications/
