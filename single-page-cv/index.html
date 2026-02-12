@@ -1,551 +1,686 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thorben Wölk - CV</title>
-    <style>
-        /* Import fonts */
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thorben Wölk - CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --paper: #ffffff;
+      --ink: #1f1f20;
+      --muted: #5d5d60;
+      --rule: #d0d0d0;
+      --header-font: "Cormorant Garamond", serif;
+      --body-font: "Source Sans 3", sans-serif;
+    }
 
-        /* Variables */
-        :root {
-            --primary-color: #465A54;
-            /* Dark moss green */
-            --secondary-color: #E8E4DE;
-            /* Sandy beige */
-            --accent-color: #A9927D;
-            /* Warm taupe */
-            --text-color: #2B3130;
-            /* Almost black */
-            --light-text: #5C6761;
-            /* Light slate gray */
-            --background: #FFFFFF;
-            /* White for printing */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-            /* Font settings */
-            --heading-font: 'Playfair Display', serif;
-            --body-font: 'Inter', sans-serif;
-        }
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+    }
 
-        /* Base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    body {
+      background: #e9e6df;
+      color: var(--ink);
+      font-family: var(--body-font);
+      font-size: 7.5pt;
+      /* Slightly reduced to fit all content */
+      line-height: 1.3;
+      padding: 10mm 0;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
 
-        body {
-            font-family: var(--body-font);
-            background-color: var(--background);
-            color: var(--text-color);
-            line-height: 1.3;
-            font-size: 9pt;
-            max-width: 210mm;
-            /* A4 width */
-            margin: 0 auto;
-            padding: 0.3in 0.3in 0.4in 0.3in;
-        }
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      background: var(--paper);
+      display: flex;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+      position: relative;
+    }
 
-        /* Typography */
-        h1,
-        h2,
-        h3,
-        h4 {
-            font-family: var(--heading-font);
-            color: var(--primary-color);
-            margin-bottom: 0.1rem;
-        }
+    /* Vertical Separator for Screen */
+    .page::after {
+      content: "";
+      position: absolute;
+      top: 15mm;
+      bottom: 15mm;
+      left: 36%;
+      width: 1px;
+      background: var(--rule);
+    }
 
-        h1 {
-            font-size: 1.4rem;
-            margin-bottom: 0.05rem;
-        }
+    .sidebar {
+      width: 36%;
+      flex: 0 0 36%;
+      padding: 15mm 6mm 10mm;
+      display: flex;
+      flex-direction: column;
+      gap: 4mm;
+    }
 
-        h2 {
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            border-bottom: 1px solid var(--accent-color);
-            padding-bottom: 0.05rem;
-            margin-top: 0.3rem;
-            margin-bottom: 0.18rem;
-        }
+    .main {
+      width: 64%;
+      flex: 0 0 64%;
+      padding: 15mm 10mm 10mm;
+      display: flex;
+      flex-direction: column;
+      gap: 4mm;
+    }
 
-        h3 {
-            font-family: var(--body-font);
-            font-weight: 500;
-            font-size: 0.75rem;
-            margin-bottom: 0.08rem;
-        }
+    .hero {
+      padding-bottom: 4mm;
+      margin-bottom: 2mm;
+      border-bottom: 1px solid var(--rule);
+    }
 
-        p {
-            margin-bottom: 0.1rem;
-            font-size: 0.75rem;
-        }
+    h1 {
+      font-family: var(--header-font);
+      font-size: 34pt;
+      font-style: italic;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      line-height: 0.9;
+      margin-bottom: 1.5mm;
+      color: #000;
+    }
 
-        a {
-            color: var(--primary-color);
-            text-decoration: none;
-        }
+    .job-title {
+      font-family: var(--body-font);
+      font-size: 9pt;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
 
-        /* Header/Contact section */
-        .cv-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.3rem;
-        }
+    .section-title,
+    .panel-title {
+      font-family: var(--header-font);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-size: 9pt;
+      margin-bottom: 2mm;
+      color: #000;
+    }
 
-        .name-title {
-            flex: 2;
-        }
+    .section-title {
+      font-size: 9.5pt;
+    }
 
-        .contact-info {
-            flex: 2;
-            text-align: right;
-            font-size: 0.75rem;
-        }
+    .sidebar-section {
+      margin-bottom: 2mm;
+    }
 
-        .job-title {
-            color: var(--light-text);
-            font-weight: 300;
-            font-size: 0.9rem;
-            margin-bottom: 0;
-        }
+    /* Specific spacing for sidebar sections to fit everything */
+    .sidebar-section.contact {
+      margin-bottom: 3mm;
+    }
 
-        /* Sections */
-        .section {
-            margin-bottom: 0.35rem;
-        }
+    .contact-list,
+    .skills-list,
+    .languages-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
 
-        /* Two column layout */
-        .two-column {
-            display: flex;
-            gap: 0.7rem;
-        }
+    .contact-list li {
+      margin-bottom: 1.5mm;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2mm;
+    }
 
-        .column-left {
-            flex: 2;
-        }
+    .label {
+      font-weight: 600;
+      font-size: 7pt;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
 
-        .column-right {
-            flex: 1;
-        }
+    .contact-value {
+      font-size: 8pt;
+      color: #333;
+    }
 
-        /* Experience & Education */
-        .experience-item,
-        .education-item {
-            margin-bottom: 0.3rem;
-        }
+    .contact-list a,
+    .cert-item a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
 
-        .experience-item:last-child,
-        .education-item:last-child {
-            margin-bottom: 0.12rem;
-        }
+    .contact-list a:hover,
+    .cert-item a:hover {
+      border-bottom-color: #2d2d30;
+    }
 
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.07rem;
-        }
+    .edu-item,
+    .skill-category,
+    .cert-item,
+    .experience-item {
+      margin-bottom: 3mm;
+    }
 
-        .company,
-        .university {
-            font-weight: 500;
-            font-size: 0.78rem;
-        }
+    .edu-item:last-child,
+    .skill-category:last-child,
+    .cert-item:last-child,
+    .experience-item:last-child {
+      margin-bottom: 0;
+    }
 
-        .dates {
-            font-size: 0.7rem;
-            color: var(--light-text);
-        }
+    .item-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 2mm;
+      margin-bottom: 0.5mm;
+    }
 
-        .role,
-        .degree {
-            font-style: italic;
-            font-size: 0.75rem;
-            margin-bottom: 0.07rem;
-        }
+    .item-name {
+      font-weight: 700;
+      font-size: 8.5pt;
+      color: #111;
+      line-height: 1.2;
+    }
 
-        /* Description/bullet points */
-        ul {
-            list-style-type: none;
-            padding-left: 0.6rem;
-            margin-bottom: 0.1rem;
-        }
+    .sidebar .item-name {
+      font-size: 8pt;
+    }
 
-        li {
-            position: relative;
-            font-size: 0.75rem;
-            margin-bottom: 0.07rem;
-            line-height: 1.28;
-        }
+    .item-date {
+      white-space: nowrap;
+      color: var(--muted);
+      font-size: 7.5pt;
+      font-variant-numeric: tabular-nums;
+    }
 
-        li:before {
-            content: '•';
-            position: absolute;
-            left: -0.6rem;
-            color: var(--accent-color);
-        }
+    .degree {
+      font-family: var(--body-font);
+      font-style: italic;
+      font-size: 8pt;
+      margin-bottom: 0.5mm;
+      color: #333;
+    }
 
-        /* Skills */
-        .skills-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.18rem;
-        }
+    .summary-text {
+      font-size: 8.5pt;
+      color: #2c2c2f;
+      line-height: 1.4;
+      text-align: justify;
+    }
 
-        .skill-category {
-            margin-bottom: 0.18rem;
-        }
+    ul.points {
+      list-style: none;
+      padding-left: 0;
+      margin: 1mm 0 0 0;
+    }
 
-        .skill-category h3 {
-            font-size: 0.78rem;
-            margin-bottom: 0.05rem;
-        }
+    ul.points li {
+      position: relative;
+      margin-bottom: 0.8mm;
+      padding-left: 3mm;
+      line-height: 1.3;
+      color: #444;
+      font-size: 8pt;
+    }
 
-        .skill-items {
-            font-size: 0.75rem;
-            color: var(--light-text);
-            line-height: 1.28;
-        }
+    ul.points li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #999;
+    }
 
-        /* Projects section - Modified to stretch wide */
-        .projects-section {
-            margin-top: 0.35rem;
-            width: 100%;
-        }
+    .skills-list .item-name {
+      font-size: 7.5pt;
+      margin-bottom: 0.2mm;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+    }
 
-        .projects-grid {
-            display: table;
-            width: 100%;
-            table-layout: fixed;
-        }
+    .edu-item p {
+      font-size: 7.5pt;
+      color: #555;
+      margin-top: 0.5mm;
+      line-height: 1.2;
+    }
 
-        .project-item {
-            display: table-cell;
-            vertical-align: top;
-            padding-right: 0.4rem;
-            width: 25%;
-        }
+    .skill-items,
+    .languages-list li {
+      color: #333337;
+      font-size: 7.8pt;
+      line-height: 1.3;
+    }
 
-        .project-item p {
-            font-size: 0.75rem;
-            margin-bottom: 0.05rem;
-            line-height: 1.25;
-        }
+    .pub-item {
+      margin-bottom: 1mm;
+    }
 
-        .project-item .item-header {
-            margin-bottom: 0.08rem;
-        }
+    .pub-item .item-name {
+      font-style: italic;
+      font-weight: 500;
+      font-family: var(--header-font);
+      font-size: 9pt;
+    }
 
-        .project-link {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-size: 0.7rem;
-        }
+    .pub-journal {
+      font-size: 8pt;
+      color: #444;
+    }
 
-        .project-link:hover {
-            text-decoration: underline;
-        }
+    @media screen and (max-width: 920px) {
+      body {
+        padding: 0;
+        background: #ffffff;
+      }
 
-        /* Summary section */
-        .summary p {
-            font-size: 0.78rem;
-            line-height: 1.3;
-            margin-bottom: 0.25rem;
-        }
+      .page {
+        width: 100%;
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+        box-shadow: none;
+      }
 
-        /* Print styles */
-        @media print {
-            body {
-                padding: 0.3in 0.3in 0.4in 0.3in;
-                width: 100%;
-                height: 100%;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
+      .page::after {
+        display: none;
+      }
 
-            @page {
-                size: A4;
-                margin: 0;
-            }
-        }
-    </style>
+      .sidebar {
+        width: 100%;
+        flex: 1 1 auto;
+        padding: 10mm;
+      }
+
+      .main {
+        width: 100%;
+        flex: 1 1 auto;
+        padding: 0 10mm 10mm;
+      }
+
+      .hero {
+        border-bottom: none;
+        margin-bottom: 5mm;
+      }
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background: #ffffff;
+      }
+
+      .page {
+        width: 100%;
+        margin: 0;
+        box-shadow: none;
+        /* Ensure 2-column layout is preserved in print */
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        break-inside: auto;
+      }
+
+      /* Hide the absolute separator to avoid misalignment */
+      .page::after {
+        display: none;
+      }
+
+      /* Use gradient background to simulate the line with 15mm gaps, matching original design */
+      .sidebar {
+        width: 36%;
+        flex: 0 0 36%;
+        padding: 15mm 6mm 10mm;
+        background-image: linear-gradient(to bottom,
+            transparent 15mm,
+            #ccc 15mm,
+            #ccc calc(100% - 15mm),
+            transparent calc(100% - 15mm));
+        background-position: right top;
+        background-repeat: no-repeat;
+        background-size: 1px 100%;
+      }
+
+      .main {
+        width: 64%;
+        flex: 0 0 64%;
+        padding: 15mm 10mm 10mm;
+      }
+
+      .hero {
+        border-bottom: 1px solid var(--rule);
+        margin-bottom: 2mm;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <div class="cv-header">
-        <div class="name-title">
-            <h1>Thorben Wölk</h1>
-            <p class="job-title">Freelance Data & AI Engineer</p>
-        </div>
-        <div class="contact-info">
-            <p>thorben.woelk@gmail.com</p>
-            <a href="https://thorbenwoelk.github.io/" target="_blank">https://thorbenwoelk.github.io/</a>
-            <p>Hamburg, Germany</p>
-        </div>
-    </div>
+  <div class="page">
+    <aside class="sidebar">
+      <!-- Contact Section -->
+      <section class="sidebar-section contact">
+        <h2 class="panel-title">Contact</h2>
+        <ul class="contact-list">
+          <li>
+            <span class="label">Email</span>
+            <a href="mailto:thorben.woelk@gmail.com" class="contact-value">thorben.woelk@gmail.com</a>
+          </li>
+          <li>
+            <span class="label">Web</span>
+            <a href="https://thorbenwoelk.github.io/" target="_blank" rel="noopener"
+              class="contact-value">http://twoelk.codeandheart.com/</a>
+          </li>
+          <li>
+            <span class="label">City</span>
+            <span class="contact-value">Hamburg, Germany</span>
+          </li>
+        </ul>
+      </section>
 
-    <div class="section summary">
-        <h2>Summary</h2>
-        <p>
-            Experienced Data & AI Engineer and Data Platform Lead. Combining technical engineering expertise with an
-            agile mindset and leadership skills to develop
-            and implement data-driven solutions. Focusing on agentic AI, web applications, and DataOps.
-            Particularly interested in cloud architecture, AI and machine learning.
+      <!-- Education & Certificate Section -->
+      <!-- Education Section -->
+      <section class="sidebar-section">
+        <h2 class="panel-title">Education</h2>
+
+        <!-- Education -->
+        <div class="edu-item">
+          <div class="item-head">
+            <span class="item-name">Rheinische Friedrich-Wilhelms-Universität Bonn</span>
+            <span class="item-date">2014 – 2017</span>
+          </div>
+          <div class="degree">Master of Science in Economics</div>
+          <p>Focus on Behavioral Economics. Thesis on "Diffusion of Responsibility".</p>
+        </div>
+
+        <div class="edu-item">
+          <div class="item-head">
+            <span class="item-name">Christian-Albrechts-Universität zu Kiel</span>
+            <span class="item-date">2010 – 2013</span>
+          </div>
+          <div class="degree">Bachelor of Science in Business Administration</div>
+        </div>
+
+        <div class="edu-item">
+          <div class="item-head">
+            <span class="item-name">Fernuniversität in Hagen</span>
+            <span class="item-date">2012 - 2019</span>
+          </div>
+          <div class="degree">Bachelor of Arts in Psychology</div>
+        </div>
+
+        <div class="edu-item">
+          <div class="item-head">
+            <span class="item-name">Université Paris I Panthéon-Sorbonne</span>
+            <span class="item-date">2013 - 2014</span>
+          </div>
+          <div class="degree">Erasmus Exchange in Economics</div>
+        </div>
+      </section>
+
+      <!-- Certifications Section -->
+      <section class="sidebar-section">
+        <h2 class="panel-title">Certifications</h2>
+
+        <div class="cert-item">
+          <div class="item-head">
+            <span class="item-name"><a
+                href="https://learn.deeplearning.ai/certificates/ac3bae8e-55b6-497c-941a-5637a658f24c?usp=sharing"
+                target="_blank" rel="noopener">Neural Networks and Deep Learning — DeepLearning.AI</a></span>
+            <span class="item-date">Dec 2025</span>
+          </div>
+          <div class="degree">(Course Certificate)</div>
+        </div>
+
+        <div class="cert-item">
+          <div class="item-head">
+            <span class="item-name"><a
+                href="https://learn.deeplearning.ai/certificates/d8ee203e-c9ff-454f-b9da-5860c114c53d?usp=sharing"
+                target="_blank" rel="noopener">Agentic AI — DeepLearning.AI</a></span>
+            <span class="item-date">Dec 2025</span>
+          </div>
+          <div class="degree">(Course Certificate)</div>
+        </div>
+
+        <div class="cert-item">
+          <div class="item-head">
+            <span class="item-name">Agile Coach</span>
+            <span class="item-date">July 2021</span>
+          </div>
+          <div class="degree">Beratung Judith Andresen</div>
+        </div>
+
+        <div class="cert-item">
+          <div class="item-head">
+            <span class="item-name">AWS Certified Solutions Architect – Associate</span>
+            <span class="item-date">2020</span>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Skills Section -->
+      <section class="sidebar-section">
+        <h2 class="panel-title">Skills</h2>
+
+        <div class="skills-list">
+          <div class="skill-category">
+            <div class="item-name">Programming Languages</div>
+            <div class="skill-items">
+              Python, SQL, JavaScript/TypeScript, Rust
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <div class="item-name">Cloud Platforms</div>
+            <div class="skill-items">
+              Google Cloud Platform (GCP), Amazon Web Services (AWS)
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <div class="item-name">Data Technologies</div>
+            <div class="skill-items">
+              Databricks, BigQuery, dbt core, dbt platform/cloud, Apache Spark, PySpark, PostgreSQL, SurrealDB, Pub/Sub,
+              Kafka,
+              Redshift, Looker, Neo4j Cypher, Google Dataflow
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <div class="item-name">Machine Learning and AI</div>
+            <div class="skill-items">
+              AWS Sagemaker, Vertex AI, sklearn, pytorch,
+              pydantic-ai, pydantic-logfire, ADK, langgraph, crew-ai, deepagents, strands, haystack, ollama,
+              Claude Code, Cursor, Codex,
+              Open Web UI
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <div class="item-name">DevOps, CI/CD</div>
+            <div class="skill-items">
+              Kubernetes, Docker, GitHub Actions, Terraform, ansible, cdk, CloudFormation, Grafana
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <div class="item-name">Methods</div>
+            <div class="skill-items">
+              Agile Coaching, User Story Mapping, Test Driven Development (TDD)
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Languages Section -->
+      <section class="sidebar-section">
+        <h2 class="panel-title">Languages</h2>
+        <ul class="languages-list">
+          <li>
+            German (Native), English (Fluent), Spanish (Good working knowledge), French (Basic)
+          </li>
+        </ul>
+      </section>
+    </aside>
+
+    <main class="main">
+      <header class="hero">
+        <h1>Thorben Wölk</h1>
+        <p class="job-title">Data &amp; AI Engineer</p>
+      </header>
+
+      <section>
+        <h2 class="section-title">Summary</h2>
+        <p class="summary-text">
+          Senior Data &amp; AI Engineer.
+          Combining technical engineering expertise with an agile mindset to develop data-driven
+          solutions.
+          Focusing on data pipelines, platform architecture, agentic AI applications, and DataOps.
         </p>
-    </div>
+      </section>
 
-    <div class="two-column">
-        <div class="column-left">
-            <div class="section">
-                <h2>Experience</h2>
+      <section>
+        <h2 class="section-title">Professional Experiences</h2>
 
-                <div class="experience-item">
-                    <div class="item-header">
-                        <span class="company">ZEIT ONLINE - Head of Data Platform</span>
-                        <span class="dates">May 2023 – Aug 2025</span>
-                    </div>
-                    <ul>
-                        <li>Leading data platform strategy and development for a major online news publisher</li>
-                        <li>Managing a team of 5+ data engineers, analytics engineers, and tracking experts</li>
-                        <li>Implementing user story mapping, a Kanban process, and release management</li>
-                    </ul>
-                </div>
-
-                <div class="experience-item">
-                    <div class="item-header">
-                        <span class="company">ZEIT ONLINE - Software Engineer Big Data</span>
-                        <span class="dates">Oct 2021 – Apr 2023</span>
-                    </div>
-                    <ul>
-                        <li>Designed and built a scalable analytics and data science platform leveraging Google Cloud,
-                            Kubernetes, dbt Cloud, and Looker</li>
-                        <li>Developed Python apps for batch and streaming data ingestion on event-driven and pipeline
-                            architectures</li>
-                        <li>Onboarded tools and experts to the data platform in collaboration with my manager</li>
-                        <li>Implemented IaC using Terraform as well as branching concepts, CI/CD workflows, and coding
-                            best practices</li>
-                    </ul>
-                </div>
-
-                <div class="experience-item">
-                    <div class="item-header">
-                        <span class="company">EOS Group - Software Engineer</span>
-                        <span class="dates">Jan 2019 – Sep 2021</span>
-                    </div>
-                    <ul>
-                        <li>Full redesign of a fintech machine learning platform</li>
-                        <li>Migrated legacy Scala monolith to microservice architecture on Kubernetes</li>
-                        <li>AWS-backed MLOps using AWS Sagemaker, Lambda, Redshift</li>
-                        <li>Automated infrastructure and ML model deployment using ansible, cdk, CloudFormation, and
-                            Jenkins</li>
-                    </ul>
-                </div>
-
-                <div class="experience-item">
-                    <div class="item-header">
-                        <span class="company">Forward3D - Junior PPC Analyst</span>
-                        <span class="dates">Sep 2017 – Nov 2018</span>
-                    </div>
-                    <ul>
-                        <li>Analyzed and optimized pay-per-click campaigns for retail clients</li>
-                        <li>Automated daily and weekly reportings with Python and SQL</li>
-                    </ul>
-                </div>
-
-                <div class="experience-item">
-                    <div class="item-header">
-                        <span class="company">briq - Institute on Behavior and Inequality - Research Assistant</span>
-                        <span class="dates">Apr 2016 – May 2017</span>
-                    </div>
-                    <ul>
-                        <li>Conducted data analysis with Python and R for economic research</li>
-                        <li>Contributed to publications on neuroeconomics and moral reasoning</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>Education</h2>
-
-                <div class="education-item">
-                    <div class="item-header">
-                        <span class="university">Rheinische Friedrich-Wilhelms-Universität Bonn</span>
-                        <span class="dates">2014 – 2017</span>
-                    </div>
-                    <div class="degree">Master of Science in Economics</div>
-                    <p>Focus on Behavioral Economics. Thesis on "Diffusion of Responsibility".</p>
-                </div>
-
-                <div class="education-item">
-                    <div class="item-header">
-                        <span class="university">Christian-Albrechts-Universität zu Kiel</span>
-                        <span class="dates">2010 – 2013</span>
-                    </div>
-                    <div class="degree">Bachelor of Science in Business Administration</div>
-                </div>
-
-                <div class="education-item">
-                    <div class="item-header">
-                        <span class="university">Fernuniversität in Hagen</span>
-                        <span class="dates">2012 - 2019</span>
-                    </div>
-                    <div class="degree">Bachelor of Arts in Psychology</div>
-                </div>
-
-                <div class="education-item">
-                    <div class="item-header">
-                        <span class="university">Université Paris I Panthéon-Sorbonne</span>
-                        <span class="dates">2013 - 2014</span>
-                    </div>
-                    <div class="degree">Erasmus Exchange in Economics</div>
-                </div>
-            </div>
+        <div class="experience-item">
+          <div class="item-head">
+            <span class="item-name">ZEIT ONLINE - Head of Data Platform</span>
+            <span class="item-date">May 2023 – Aug 2025</span>
+          </div>
+          <ul class="points">
+            <li>
+              Leading data platform strategy and development for a major online news publisher
+            </li>
+            <li>
+              Managing a team of 5+ data engineers, analytics engineers, and tracking experts
+            </li>
+            <li>
+              Implementing user story mapping, a Kanban process, and release management
+            </li>
+          </ul>
         </div>
 
-        <div class="column-right">
-            <div class="section">
-                <h2>Skills</h2>
-
-                <div class="skills-list">
-                    <div class="skill-category">
-                        <h3>Programming Languages</h3>
-                        <div class="skill-items">Python, SQL, JavaScript/TypeScript, Rust</div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h3>Cloud Platforms</h3>
-                        <div class="skill-items">Google Cloud Platform (GCP), Amazon Web Services (AWS)</div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h3>Data Technologies</h3>
-                        <div class="skill-items">Databricks, BigQuery, PostgreSQL, SurrealDB, dbt core, dbt Cloud, Dataflow,
-                            PySpark, Pub/Sub,
-                            Kafka, Redshift, Looker, LookML, Neo4j Cypher</div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h3>Machine Learning and AI</h3>
-                        <div class="skill-items">MLOps, numpy, sklearn, pytorch, pydantic-ai, pydantic-logfire, ADK,
-                            langgraph, crew-ai, deepagents, strands, haystack,
-                            Cursor, Claude Code, AWS Sagemaker, Vertex AI, ollama
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h3>DevOps, CI/CD</h3>
-                        <div class="skill-items">Kubernetes, Docker, GitHub Actions, Terraform, ansible, cdk,
-                            CloudFormation, Grafana, GCP Monitoring</div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h3>Methods</h3>
-                        <div class="skill-items">Agile Coaching, User Story Mapping, Test Driven Development</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>Languages</h2>
-                <div class="skill-category">
-                    <div class="skill-items">
-                        German (Native), English (Fluent), Spanish (Good working knowledge), French (Basic)
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>Certifications</h2>
-
-                <div class="experience-item">
-                    <div class="item-header">
-                        <span class="company"><a
-                                href="https://learn.deeplearning.ai/certificates/ac3bae8e-55b6-497c-941a-5637a658f24c?usp=sharing"
-                                target="_blank" rel="noopener">Neural Networks and Deep Learning — DeepLearning.AI
-                                (Course
-                                Certificate)</a></span>
-                        <span class="dates">Dec 2025</span>
-                    </div>
-                </div>
-
-                <div class="experience-item">
-                    <div class="item-header">
-                        <span class="company"><a
-                                href="https://learn.deeplearning.ai/certificates/d8ee203e-c9ff-454f-b9da-5860c114c53d?usp=sharing"
-                                target="_blank" rel="noopener">Agentic AI — DeepLearning.AI (Course
-                                Certificate)</a></span>
-                        <span class="dates">Dec 2025</span>
-                    </div>
-                </div>
-
-                <div class="experience-item">
-                    <div class="item-header">
-                        <span class="company">Agile Coach</span>
-                        <span class="dates">July 2021</span>
-                    </div>
-                    <p>Beratung Judith Andresen</p>
-                </div>
-
-                <div class="experience-item">
-                    <div class="item-header">
-                        <span class="company">AWS Certified Solutions Architect – Associate</span>
-                        <span class="dates">2020</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2>Publications</h2>
-
-                <div class="experience-item">
-                    <div class="item-header">
-                        <span class="company">"Spreading inequality: neural computations underlying paying-it-forward
-                            reciprocity"</span>
-                        <span class="dates">2018</span>
-                    </div>
-                    <p>Social Cognitive and Affective Neuroscience</p>
-                </div>
-            </div>
+        <div class="experience-item">
+          <div class="item-head">
+            <span class="item-name">ZEIT ONLINE - Software Engineer Big Data</span>
+            <span class="item-date">Oct 2021 – Apr 2023</span>
+          </div>
+          <ul class="points">
+            <li>
+              Designed and built a scalable analytics and data science platform leveraging Google Cloud, Kubernetes, dbt
+              Cloud, and Looker
+            </li>
+            <li>
+              Developed Python apps for batch and streaming data ingestion on event-driven and pipeline architectures
+            </li>
+            <li>
+              Onboarded tools and experts to the data platform in collaboration with my manager
+            </li>
+            <li>
+              Implemented IaC using Terraform as well as branching concepts, CI/CD workflows, and coding best practices
+            </li>
+          </ul>
         </div>
-    </div>
 
-    <!-- Projects section stretched across the full width -->
-    <div class="projects-section">
-        <h2>Projects</h2>
-        <div class="projects-grid">
-
-            <div class="project-item">
-                <div class="item-header">
-                    <span class="company">Data Ingestion Framework</span>
-                </div>
-                <p>OOP batch ingestion framework built with Python on Kubernetes and GCP.</p>
-                <p>Property of DIE ZEIT</p>
-            </div>
-
-            <div class="project-item">
-                <div class="item-header">
-                    <span class="company">Data Pipeline Manager</span>
-                </div>
-                <p>An API for engineers to manage and operate data ingestion jobs.</p>
-                <p>Property of DIE ZEIT</p>
-            </div>
-
-            <div class="project-item">
-                <div class="item-header">
-                    <span class="company">Photography Portfolio</span>
-                </div>
-                <p>A website showcasing photography work. Built with Svelte on Google Cloud Run.</p>
-                <a href="https://totos-photos-673062863574.us-central1.run.app/#current" target="_blank"
-                    class="project-link">View Portfolio</a>
-            </div>
-
+        <div class="experience-item">
+          <div class="item-head">
+            <span class="item-name">EOS Group - Software Engineer</span>
+            <span class="item-date">Jan 2019 – Sep 2021</span>
+          </div>
+          <ul class="points">
+            <li>Full redesign of a fintech machine learning platform</li>
+            <li>
+              Migrated legacy Scala monolith to microservice architecture on Kubernetes
+            </li>
+            <li>
+              AWS-backed MLOps using AWS Sagemaker, Lambda, Redshift
+            </li>
+            <li>
+              Automated infrastructure and ML model deployment using ansible, cdk, CloudFormation, and Jenkins
+            </li>
+          </ul>
         </div>
-    </div>
+
+        <div class="experience-item">
+          <div class="item-head">
+            <span class="item-name">Forward3D - Junior PPC Analyst</span>
+            <span class="item-date">Sep 2017 – Nov 2018</span>
+          </div>
+          <ul class="points">
+            <li>
+              Analyzed and optimized pay-per-click campaigns for retail clients
+            </li>
+            <li>
+              Automated daily and weekly reportings with Python and SQL
+            </li>
+          </ul>
+        </div>
+
+        <div class="experience-item">
+          <div class="item-head">
+            <span class="item-name">briq - Institute on Behavior and Inequality - Research Assistant</span>
+            <span class="item-date">Apr 2016 – May 2017</span>
+          </div>
+          <ul class="points">
+            <li>
+              Conducted data analysis with Python and R for economic research
+            </li>
+            <li>
+              Contributed to publications on neuroeconomics and moral reasoning
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Publications</h2>
+        <div class="pub-item">
+          <div class="item-head">
+            <span class="item-name">"Spreading inequality: neural computations underlying paying-it-forward
+              reciprocity"</span>
+            <span class="item-date">2018</span>
+          </div>
+          <div class="pub-journal">Social Cognitive and Affective Neuroscience</div>
+        </div>
+      </section>
+
+    </main>
+  </div>
 </body>
 
 </html>

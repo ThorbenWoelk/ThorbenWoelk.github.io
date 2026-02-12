@@ -22,13 +22,37 @@ If you want to run this locally with auto-refresh:
 
 ```bash
 # Install dependencies
-npm install
+bun install
 
 # Start development server
-npm run dev
+bun run dev
 ```
 
 Then open http://localhost:3000 in your browser.
+
+## CV PDF Export
+
+Generate the single-page CV PDF from `single-page-cv/index.html`:
+
+```bash
+bun run cv:pdf
+```
+
+Enable the versioned git hook once per local clone:
+
+```bash
+git config core.hooksPath .githooks
+```
+
+If Chromium is not installed for Playwright yet, run once:
+
+```bash
+bunx playwright install chromium
+```
+
+After this, commits that include `single-page-cv/index.html` will automatically regenerate and stage:
+
+`assets/Thorben_Woelk_CV_2026.pdf`
 
 ## Deployment
 

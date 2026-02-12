@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+set -euo pipefail
+
+repo_root="$(git rev-parse --show-toplevel)"
+cd "$repo_root"
+
+# Regenerate the PDF only when the CV source is part of this commit.
+if git diff --cached --quiet -- single-page-cv/index.html; then
+  exit 0
+fi
+
+"$repo_root/scripts/export-cv-pdf.sh"
+git add assets/Thorben_Woelk_CV_2026.pdf
+
+echo "[pre-commit] Regenerated assets/Thorben_Woelk_CV_2026.pdf"
