@@ -297,6 +297,57 @@ body::before {
   padding: .55rem .7rem;
 }
 
+.back-to-top {
+  position: fixed;
+  left: 50%;
+  bottom: 2rem;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid var(--muted);
+  background: var(--bg);
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 90;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(20px);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.back-to-top svg {
+  width: 28px;
+  height: 28px;
+  stroke-width: 2.5px;
+}
+
+/* Light theme adjustment */
+[data-theme="light"] .back-to-top {
+  background: var(--bg);
+  border-color: var(--muted);
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  color: var(--text);
+  border-color: var(--text);
+  transform: translateX(-50%) translateY(-2px);
+}
+
+.back-to-top:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+}
+
 .theme-toggle i {
   width: 20px;
   height: 20px;
@@ -1060,6 +1111,7 @@ footer {
   .navbar,
   .mobile-menu-btn,
   .theme-toggle,
+  .back-to-top,
   .footer-socials,
   .avatar::after {
     display: none !important;

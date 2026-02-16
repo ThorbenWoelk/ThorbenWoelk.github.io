@@ -12,9 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 2) Sticky header background after scroll
   const navbar = document.querySelector('.navbar');
+  const backToTopBtn = document.getElementById('backToTop');
   const onScroll = () => {
     if (window.scrollY > 24) navbar.classList.add('scrolled');
     else navbar.classList.remove('scrolled');
+    backToTopBtn?.classList.toggle('is-visible', window.scrollY > 260);
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
@@ -117,7 +119,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   mobileMenu?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
 
-  // 6) Footer year
+  // 6) Back to top
+  backToTopBtn?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // 7) Footer year
   const yearSpan = document.getElementById('year');
   if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 });
