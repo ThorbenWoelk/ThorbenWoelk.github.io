@@ -524,7 +524,8 @@ body::before {
   transition: transform .2s ease, background .25s ease, border-color .25s ease;
 }
 
-.glass-card:hover {
+a.glass-card:hover,
+button.glass-card:hover {
   transform: translateY(-4px);
   border-color: color-mix(in oklab, var(--primary) 60%, var(--border));
 }
