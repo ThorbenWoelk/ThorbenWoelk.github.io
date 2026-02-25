@@ -664,16 +664,17 @@ body::before {
 
 .tags {
   display: flex;
-  gap: .5rem;
+  gap: 0.5rem;
   flex-wrap: wrap;
 }
 
 .tags span {
-  background: var(--bg-elev);
-  border: 1px solid var(--border);
-  border-radius: .5rem;
-  padding: .4rem .7rem;
   color: var(--text);
+}
+
+.tags span:not(:last-child)::after {
+  content: ",";
+  color: var(--muted);
 }
 
 .list-unstyled {
@@ -691,6 +692,63 @@ body::before {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+/* Certifications CSS */
+.certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.75rem;
+}
+
+.cert-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1.5rem;
+  text-decoration: none;
+}
+
+.cert-badge:hover .cert-image {
+  transform: scale(1.05);
+}
+
+.cert-image {
+  width: 220px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.cert-info h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+}
+
+.cert-info p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.cert-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cert-list h3 {
+  margin: 0 0 0.5rem;
+}
+
+.cert-list li {
+  margin-bottom: 0.85rem;
+}
+
+.cert-list li:last-child {
+  margin-bottom: 0;
 }
 
 .languages-grid {
