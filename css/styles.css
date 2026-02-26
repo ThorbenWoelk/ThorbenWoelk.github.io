@@ -80,6 +80,22 @@ a {
   text-decoration: none;
 }
 
+/* Text links */
+p a,
+li a {
+  color: var(--primary-2);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklab, var(--primary-2) 40%, transparent);
+  text-underline-offset: 4px;
+  transition: all 0.2s ease;
+}
+
+p a:hover,
+li a:hover {
+  color: var(--primary);
+  text-decoration-color: var(--primary);
+}
+
 /* Background tint */
 body::before {
   content: "";
@@ -210,6 +226,50 @@ body::before {
   font-weight: 700;
   letter-spacing: .06em;
   font-size: 1.2rem;
+  display: inline-flex;
+}
+
+.logo-char {
+  display: inline-block;
+  transform-origin: bottom center;
+}
+
+@keyframes charHop {
+  0% {
+    transform: translateY(0) scale(1);
+    color: inherit;
+  }
+
+  30% {
+    transform: translateY(-4px) scale(1.05);
+    color: var(--primary);
+  }
+
+  60% {
+    transform: translateY(0) scale(1);
+    color: var(--primary-2);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+    color: inherit;
+  }
+}
+
+.logo.logo-hover-effect .logo-char {
+  animation: charHop 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.logo.logo-hover-effect .logo-char:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.logo.logo-hover-effect .logo-char:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.logo.logo-hover-effect .logo-char:nth-child(3) {
+  animation-delay: 0.2s;
 }
 
 .desktop-nav {
@@ -449,10 +509,7 @@ body::before {
   line-height: 1;
   font-weight: 800;
   font-size: var(--step-2);
-  background: linear-gradient(90deg, var(--primary), var(--primary-2));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--primary-2);
 }
 
 .stat-label {

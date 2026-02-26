@@ -127,4 +127,25 @@ document.addEventListener('DOMContentLoaded', () => {
   // 7) Footer year
   const yearSpan = document.getElementById('year');
   if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+  // 8) Friendly logo hover effect (once per hover)
+  const logoEl = document.querySelector('.logo');
+  if (logoEl) {
+    logoEl.addEventListener('mouseenter', () => {
+      if (!logoEl.classList.contains('logo-hover-effect')) {
+        logoEl.classList.add('logo-hover-effect');
+      }
+    });
+
+    // Since the animation happens on child spans, it triggers multiple times. 
+    // Wait for the final character to finish its animation.
+    logoEl.addEventListener('animationend', (e) => {
+      const chars = logoEl.querySelectorAll('.logo-char');
+      if (chars.length > 0 && e.target === chars[chars.length - 1]) {
+        logoEl.classList.remove('logo-hover-effect');
+      } else if (chars.length === 0) {
+        logoEl.classList.remove('logo-hover-effect');
+      }
+    });
+  }
 });
