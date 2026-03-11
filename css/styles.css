@@ -970,8 +970,8 @@ button.glass-card:hover {
 
 /* Base Nodes connect UP to the next level */
 .level-base .connector-line {
-  width: calc(50% + 1rem);
-  height: 3rem;
+  width: 1rem;
+  height: calc(3rem + 2rem);
   bottom: 100%;
   left: 50%;
   background: transparent;
