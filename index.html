@@ -31,10 +31,10 @@
             <nav class="desktop-nav" aria-label="Primary">
                 <a href="#about" class="nav-link">About</a>
                 <a href="#experience" class="nav-link">Experience</a>
-                <a href="#education" class="nav-link">Education</a>
+                <a href="#projects" class="nav-link">Projects</a>
                 <a href="#certifications" class="nav-link">Certifications</a>
                 <a href="#skills" class="nav-link">Skills</a>
-                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#education" class="nav-link">Education</a>
             </nav>
             <div class="nav-actions">
                 <button class="btn icon-btn theme-toggle" aria-label="Toggle theme" aria-pressed="false">
@@ -64,10 +64,10 @@
         <nav class="mobile-nav" aria-label="Mobile">
             <a href="#about" class="nav-link">About</a>
             <a href="#experience" class="nav-link">Experience</a>
-            <a href="#education" class="nav-link">Education</a>
+            <a href="#projects" class="nav-link">Projects</a>
             <a href="#certifications" class="nav-link">Certifications</a>
             <a href="#skills" class="nav-link">Skills</a>
-            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#education" class="nav-link">Education</a>
             <a href="assets/Thorben_Woelk_CV_2026.pdf" class="nav-link" download target="_blank">Download CV</a>
         </nav>
     </div>
@@ -253,80 +253,77 @@
             </div>
         </section>
 
-        <!-- EDUCATION -->
-        <section id="education" class="section">
+        <!-- PROJECTS -->
+        <section id="projects" class="section">
             <div class="container">
-                <h2 class="section-title">Education</h2>
-                <div class="skill-tree-container">
-                    <!-- Level 3: The Apex -->
-                    <div class="tree-level level-apex">
-                        <div class="tree-node apex-node fade-in-up" data-type="master">
-                            <a href="https://www.econ.uni-bonn.de/en/study-programs/study-programs/master/master-economics"
-                                target="_blank" class="node-content glass-card"
-                                style="display: block; text-decoration: none; color: inherit;">
-                                <div class="node-glow"></div>
-                                <div class="node-header">
-                                    <span class="year">2014 – 2017</span>
-                                    <h3>M.Sc. Economics</h3>
-                                </div>
-                                <div class="node-details">
-                                    <h4>Rheinische Friedrich-Wilhelms-Universität Bonn</h4>
-                                    <p>Focus on Behavioral Economics. Thesis on "Diffusion of Responsibility".</p>
-                                </div>
-                            </a>
+                <h2 class="section-title">Selected Projects</h2>
+                <div class="projects-grid">
+                    <a href="https://dastill-frontend-3x37fd654q-ey.a.run.app/?channel=UCbRP3c757lWg9M-U7TyEkXA&guide=0" target="_blank"
+                        class="project-card glass-card fade-in-up">
+                        <div class="project-header">
+                            <i data-feather="youtube" class="project-icon"></i>
+                            <div class="project-links">
+                            </div>
+                        </div>
+                        <h3>DAstIll</h3>
+                        <p>Web app that helps you stop doom-scrolling YouTube shorts. dAstIll monitors your favorite YouTube channels, pulls transcripts, and delivers AI-generated summaries.</p>
+                        <div class="tech-stack">
+                            <span>AI Summaries</span>
+                            <span>AI Evals</span>
+                            <span>ollama</span>
+                            <span>Rust rig</span>
+                            <span>Svelte</span>
+                            <span>GCP</span>
+                        </div>
+                    </a>
+
+                    <div class="project-card glass-card fade-in-up">
+                        <div class="project-header">
+                            <i data-feather="database" class="project-icon"></i>
+                            <div class="project-links">
+                                <span class="tag">Property of DIE ZEIT</span>
+                            </div>
+                        </div>
+                        <h3>Data Ingestion Framework</h3>
+                        <p>An object-oriented batch ingestion framework built with Python on Kubernetes and GCP to
+                            reduce time to market of available data sources.</p>
+                        <div class="tech-stack">
+                            <span>Python</span>
+                            <span>GCP</span>
+                            <span>Kubernetes</span>
                         </div>
                     </div>
 
-                    <div class="tree-level level-branch">
-                        <div class="tree-node special-node fade-in-up" data-type="exchange">
-                            <div class="connector-line"></div>
-                            <a href="https://www.pantheonsorbonne.fr/en/international" target="_blank"
-                                class="node-content glass-card"
-                                style="display: block; text-decoration: none; color: inherit;">
-                                <div class="node-glow"></div>
-                                <div class="node-header">
-                                    <span class="year">2013 – 2014</span>
-                                    <h3>Erasmus Exchange <i data-feather="flag" class="flag-icon"></i></h3>
-                                </div>
-                                <div class="node-details">
-                                    <h4>Université Paris I Panthéon-Sorbonne</h4>
-                                    <p>Economics</p>
-                                </div>
-                            </a>
+                    <div class="project-card glass-card fade-in-up">
+                        <div class="project-header">
+                            <i data-feather="git-merge" class="project-icon"></i>
+                            <div class="project-links">
+                                <span class="tag">Property of DIE ZEIT</span>
+                            </div>
+                        </div>
+                        <h3>Data Pipeline Manager</h3>
+                        <p>An API for engineers to manage and operate data ingestion jobs.</p>
+                        <div class="tech-stack">
+                            <span>Python</span>
+                            <span>GCP</span>
+                            <span>API</span>
                         </div>
                     </div>
 
-                    <div class="tree-level level-base">
-                        <div class="tree-node base-node fade-in-up" data-type="bachelor">
-                            <div class="connector-line"></div>
-                            <a href="https://www.studium.uni-kiel.de/de/studienangebot/studienfaecher/betriebswirtschaftslehre-ba"
-                                target="_blank" class="node-content glass-card"
-                                style="display: block; text-decoration: none; color: inherit;">
-                                <div class="node-glow"></div>
-                                <div class="node-header">
-                                    <span class="year">2010 – 2013</span>
-                                    <h3>B.Sc. Business Admin</h3>
-                                </div>
-                                <div class="node-details">
-                                    <h4>Christian-Albrechts-Universität zu Kiel</h4>
-                                </div>
-                            </a>
+                    <a href="https://totos-photos-673062863574.us-central1.run.app/#current" target="_blank"
+                        class="project-card glass-card fade-in-up">
+                        <div class="project-header">
+                            <i data-feather="aperture" class="project-icon"></i>
+                            <div class="project-links">
+                            </div>
                         </div>
-                        <div class="tree-node base-node fade-in-up" data-type="bachelor">
-                            <a href="http://fernuni-hagen.de/psychologie/studium/portale/bscpsy/" target="_blank"
-                                class="node-content glass-card"
-                                style="display: block; text-decoration: none; color: inherit;">
-                                <div class="node-glow"></div>
-                                <div class="node-header">
-                                    <span class="year">2012 – 2019</span>
-                                    <h3>B.A. Psychology</h3>
-                                </div>
-                                <div class="node-details">
-                                    <h4>Fernuniversität in Hagen</h4>
-                                </div>
-                            </a>
+                        <h3>Photography Portfolio</h3>
+                        <p>A website showcasing photography work. Built with Svelte on Google Cloud Run.</p>
+                        <div class="tech-stack">
+                            <span>Svelte</span>
+                            <span>Google Cloud Run</span>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -491,83 +488,83 @@
             </div>
         </section>
 
-        <!-- PROJECTS -->
-        <section id="projects" class="section">
+        <!-- EDUCATION -->
+        <section id="education" class="section">
             <div class="container">
-                <h2 class="section-title">Selected Projects</h2>
-                <div class="projects-grid">
-                    <a href="https://dastill-frontend-3x37fd654q-ey.a.run.app/?channel=UCbRP3c757lWg9M-U7TyEkXA&guide=0" target="_blank"
-                        class="project-card glass-card fade-in-up">
-                        <div class="project-header">
-                            <i data-feather="cpu" class="project-icon"></i>
-                            <div class="project-links">
-                                <i data-feather="external-link"></i>
-                            </div>
-                        </div>
-                        <h3>Dastill</h3>
-                        <p>AI-generated content summaries and automated evaluations for accurate information distillation. Built with modern web technologies and LLMs.</p>
-                        <div class="tech-stack">
-                            <span>LLM Summaries</span>
-                            <span>AI Evals</span>
-                            <span>Agentic AI</span>
-                        </div>
-                    </a>
-
-                    <div class="project-card glass-card fade-in-up">
-                        <div class="project-header">
-                            <i data-feather="server" class="project-icon"></i>
-                            <div class="project-links">
-                                <span class="tag">Property of DIE ZEIT</span>
-                            </div>
-                        </div>
-                        <h3>Data Ingestion Framework</h3>
-                        <p>An object-oriented batch ingestion framework built with Python on Kubernetes and GCP to
-                            reduce time to market of available data sources.</p>
-                        <div class="tech-stack">
-                            <span>Python</span>
-                            <span>GCP</span>
-                            <span>Kubernetes</span>
+                <h2 class="section-title">Education</h2>
+                <div class="skill-tree-container">
+                    <!-- Level 3: The Apex -->
+                    <div class="tree-level level-apex">
+                        <div class="tree-node apex-node fade-in-up" data-type="master">
+                            <a href="https://www.econ.uni-bonn.de/en/study-programs/study-programs/master/master-economics"
+                                target="_blank" class="node-content glass-card"
+                                style="display: block; text-decoration: none; color: inherit;">
+                                <div class="node-glow"></div>
+                                <div class="node-header">
+                                    <span class="year">2014 – 2017</span>
+                                    <h3>M.Sc. Economics</h3>
+                                </div>
+                                <div class="node-details">
+                                    <h4>Rheinische Friedrich-Wilhelms-Universität Bonn</h4>
+                                    <p>Focus on Behavioral Economics. Thesis on "Diffusion of Responsibility".</p>
+                                </div>
+                            </a>
                         </div>
                     </div>
 
-                    <div class="project-card glass-card fade-in-up">
-                        <div class="project-header">
-                            <i data-feather="terminal" class="project-icon"></i>
-                            <div class="project-links">
-                                <span class="tag">Property of DIE ZEIT</span>
-                            </div>
-                        </div>
-                        <h3>Data Pipeline Manager</h3>
-                        <p>An API for engineers to manage and operate data ingestion jobs.</p>
-                        <div class="tech-stack">
-                            <span>Python</span>
-                            <span>GCP</span>
-                            <span>API</span>
+                    <div class="tree-level level-branch">
+                        <div class="tree-node special-node fade-in-up" data-type="exchange">
+                            <div class="connector-line"></div>
+                            <a href="https://www.pantheonsorbonne.fr/en/international" target="_blank"
+                                class="node-content glass-card"
+                                style="display: block; text-decoration: none; color: inherit;">
+                                <div class="node-glow"></div>
+                                <div class="node-header">
+                                    <span class="year">2013 – 2014</span>
+                                    <h3>Erasmus Exchange</h3>
+                                </div>
+                                <div class="node-details">
+                                    <h4>Université Paris I Panthéon-Sorbonne</h4>
+                                    <p>Economics</p>
+                                </div>
+                            </a>
                         </div>
                     </div>
 
-                    <a href="https://totos-photos-673062863574.us-central1.run.app/#current" target="_blank"
-                        class="project-card glass-card fade-in-up">
-                        <div class="project-header">
-                            <i data-feather="camera" class="project-icon"></i>
-                            <div class="project-links">
-                                <i data-feather="external-link"></i>
-                            </div>
+                    <div class="tree-level level-base">
+                        <div class="tree-node base-node fade-in-up" data-type="bachelor">
+                            <div class="connector-line"></div>
+                            <a href="https://www.studium.uni-kiel.de/de/studienangebot/studienfaecher/betriebswirtschaftslehre-ba"
+                                target="_blank" class="node-content glass-card"
+                                style="display: block; text-decoration: none; color: inherit;">
+                                <div class="node-glow"></div>
+                                <div class="node-header">
+                                    <span class="year">2010 – 2013</span>
+                                    <h3>B.Sc. Business Admin</h3>
+                                </div>
+                                <div class="node-details">
+                                    <h4>Christian-Albrechts-Universität zu Kiel</h4>
+                                </div>
+                            </a>
                         </div>
-                        <h3>Photography Portfolio</h3>
-                        <p>A website showcasing photography work. Built with Svelte on Google Cloud Run.</p>
-                        <div class="tech-stack">
-                            <span>Svelte</span>
-                            <span>Google Cloud Run</span>
+                        <div class="tree-node base-node fade-in-up" data-type="bachelor">
+                            <a href="http://fernuni-hagen.de/psychologie/studium/portale/bscpsy/" target="_blank"
+                                class="node-content glass-card"
+                                style="display: block; text-decoration: none; color: inherit;">
+                                <div class="node-glow"></div>
+                                <div class="node-header">
+                                    <span class="year">2012 – 2019</span>
+                                    <h3>B.A. Psychology</h3>
+                                </div>
+                                <div class="node-details">
+                                    <h4>Fernuniversität in Hagen</h4>
+                                </div>
+                            </a>
                         </div>
-                    </a>
+                    </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- PUBLICATION -->
-        <section class="section">
-            <div class="container">
+                
+                <h3 class="section-title fade-in-up" style="margin-top: 4rem; text-align: left; font-size: 1.5rem;">Publications</h3>
                 <a href="https://pubmed.ncbi.nlm.nih.gov/29897606/" target="_blank" class="glass-card fade-in-up"
                     style="display: block;">
                     <h3><i data-feather="book-open"></i> Publications</h3>
@@ -607,7 +604,9 @@
 
     <script defer src="js/main.js"></script>
     <script>
-        feather.replace();
+        document.addEventListener('DOMContentLoaded', () => {
+            feather.replace();
+        });
     </script>
 </body>
 
