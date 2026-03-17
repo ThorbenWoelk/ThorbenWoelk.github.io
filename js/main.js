@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   onScroll();
 
   // 3) Active section link highlighting
-  const sectionIds = ['about', 'experience', 'projects', 'certifications', 'skills', 'education'];
+  const sectionIds = ['about', 'experience', 'certifications', 'projects', 'skills', 'education'];
   const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
   const navLinks = Array.from(document.querySelectorAll('.desktop-nav .nav-link'));
   const setActive = () => {
