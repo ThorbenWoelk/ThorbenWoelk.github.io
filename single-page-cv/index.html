@@ -198,9 +198,12 @@
 
     .edu-item,
     .skill-category,
-    .cert-item,
     .experience-item {
       margin-bottom: 3mm;
+    }
+
+    .cert-item {
+      margin-bottom: 1mm;
     }
 
     .edu-item:last-child,
@@ -293,6 +296,27 @@
       color: #333337;
       font-size: 7.8pt;
       line-height: 1.3;
+    }
+
+    .cert-with-badge {
+      display: flex;
+      align-items: center;
+      gap: 2mm;
+    }
+
+    .cert-with-badge > a {
+      flex: 0 0 auto;
+      line-height: 0;
+    }
+
+    .cert-with-badge img {
+      width: 6mm;
+      height: 6mm;
+      object-fit: contain;
+    }
+
+    .cert-with-badge .item-head {
+      flex: 1;
     }
 
     .pub-item {
@@ -509,11 +533,10 @@
           <div class="skill-category">
             <div class="item-name">Machine Learning and AI</div>
             <div class="skill-items">
-              AWS Sagemaker, Vertex AI, sklearn, pytorch,
-              pydantic-ai, ADK, langgraph, crew-ai, haystack,
-              ollama,
-              Claude Code, Cursor, Codex,
-              Open Web UI
+              AWS Bedrock, AWS Sagemaker, Vertex AI, sklearn, pytorch,
+              pydantic-ai, pydantic-logfire, ADK, langgraph, crew-ai,
+              deepagents, strands, haystack, ollama,
+              Claude Code, Cursor, Codex, Open Web UI
             </div>
           </div>
 
@@ -676,58 +699,46 @@
       <section>
         <h2 class="section-title">Certifications</h2>
 
-        <div style="display: flex; gap: 2mm; margin-bottom: 1mm; align-items: center;">
-          <div style="flex: 0 0 auto; width: 9mm;">
-            <a href="https://credentials.databricks.com/53fa69bc-ace4-4e43-a29e-5afebe34efbc#acc.AeQsuFmO"
-              target="_blank" rel="noopener">
-              <img src="https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/175372167"
-                alt="Databricks Data Engineer" style="width: 100%; height: auto; display: block;">
-            </a>
-          </div>
-          <div style="flex: 1;">
-            <div class="item-head" style="margin-bottom: 0;">
-              <span class="item-name"><a
-                  href="https://credentials.databricks.com/53fa69bc-ace4-4e43-a29e-5afebe34efbc#acc.AeQsuFmO"
-                  target="_blank" rel="noopener">Databricks Data Engineer Associate — Databricks</a></span>
-              <span class="item-date">Feb 2026</span>
-            </div>
-            <p style="font-size: 7pt; color: #555; margin-top: 0;">Certified Data Engineer Associate</p>
+        <div class="cert-item cert-with-badge">
+          <a href="https://credentials.databricks.com/ea67bcc5-f4c9-4c06-bbf7-fe7ce8418c55#acc.BPOfpCwA" target="_blank" rel="noopener">
+            <img src="https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/176750085" alt="">
+          </a>
+          <div class="item-head">
+            <span class="item-name"><a href="https://credentials.databricks.com/ea67bcc5-f4c9-4c06-bbf7-fe7ce8418c55#acc.BPOfpCwA" target="_blank" rel="noopener">Databricks Data Engineer Professional — Databricks</a></span>
+            <span class="item-date">Mar 2026</span>
           </div>
         </div>
 
-        <div style="display: flex; gap: 2mm; margin-bottom: 1mm; align-items: center;">
-          <div style="flex: 0 0 auto; width: 9mm;">
-            <a href="https://credentials.databricks.com/ea67bcc5-f4c9-4c06-bbf7-fe7ce8418c55#acc.BPOfpCwA"
-              target="_blank" rel="noopener">
-              <img src="https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/176750085"
-                alt="Databricks Data Engineer Professional" style="width: 100%; height: auto; display: block;">
-            </a>
+        <div class="cert-item cert-with-badge">
+          <a href="https://credentials.databricks.com/53fa69bc-ace4-4e43-a29e-5afebe34efbc#acc.AeQsuFmO" target="_blank" rel="noopener">
+            <img src="https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/175372167" alt="">
+          </a>
+          <div class="item-head">
+            <span class="item-name"><a href="https://credentials.databricks.com/53fa69bc-ace4-4e43-a29e-5afebe34efbc#acc.AeQsuFmO" target="_blank" rel="noopener">Databricks Data Engineer Associate — Databricks</a></span>
+            <span class="item-date">Feb 2026</span>
           </div>
-          <div style="flex: 1;">
-            <div class="item-head" style="margin-bottom: 0;">
-              <span class="item-name"><a
-                  href="https://credentials.databricks.com/ea67bcc5-f4c9-4c06-bbf7-fe7ce8418c55#acc.BPOfpCwA"
-                  target="_blank" rel="noopener">Databricks Data Engineer Professional - Databricks</a></span>
-              <span class="item-date">Mar 2026</span>
-            </div>
-            <p style="font-size: 7pt; color: #555; margin-top: 0;">Certified Data Engineer Professional</p>
+        </div>
+
+        <div class="cert-item cert-with-badge">
+          <a href="https://www.credly.com/badges/087a2915-85b7-4ec8-83cf-91eacdae0c63" target="_blank" rel="noopener">
+            <img src="https://images.credly.com/size/340x340/images/4d4693bb-530e-4bca-9327-de07f3aa2348/image.png" alt="">
+          </a>
+          <div class="item-head">
+            <span class="item-name"><a href="https://www.credly.com/badges/087a2915-85b7-4ec8-83cf-91eacdae0c63" target="_blank" rel="noopener">AWS Certified AI Practitioner — Amazon Web Services</a></span>
+            <span class="item-date">Mar 2026</span>
           </div>
         </div>
 
         <div class="cert-item">
           <div class="item-head">
-            <span class="item-name"><a
-                href="https://learn.deeplearning.ai/certificates/ac3bae8e-55b6-497c-941a-5637a658f24c?usp=sharing"
-                target="_blank" rel="noopener">Neural Networks and Deep Learning — DeepLearning.AI</a></span>
+            <span class="item-name"><a href="https://learn.deeplearning.ai/certificates/ac3bae8e-55b6-497c-941a-5637a658f24c?usp=sharing" target="_blank" rel="noopener">Neural Networks and Deep Learning — DeepLearning.AI</a></span>
             <span class="item-date">Dec 2025</span>
           </div>
         </div>
 
         <div class="cert-item">
           <div class="item-head">
-            <span class="item-name"><a
-                href="https://learn.deeplearning.ai/certificates/d8ee203e-c9ff-454f-b9da-5860c114c53d?usp=sharing"
-                target="_blank" rel="noopener">Agentic AI — DeepLearning.AI</a></span>
+            <span class="item-name"><a href="https://learn.deeplearning.ai/certificates/d8ee203e-c9ff-454f-b9da-5860c114c53d?usp=sharing" target="_blank" rel="noopener">Agentic AI — DeepLearning.AI</a></span>
             <span class="item-date">Dec 2025</span>
           </div>
         </div>
@@ -741,8 +752,7 @@
 
         <div class="cert-item">
           <div class="item-head">
-            <span class="item-name"><a href="../assets/AWS Certified Solutions Architect - Associate.pdf"
-                target="_blank" rel="noopener">AWS Certified Solutions Architect – Associate</a></span>
+            <span class="item-name"><a href="../assets/AWS Certified Solutions Architect - Associate.pdf" target="_blank" rel="noopener">AWS Certified Solutions Architect – Associate</a></span>
             <span class="item-date">2020</span>
           </div>
         </div>

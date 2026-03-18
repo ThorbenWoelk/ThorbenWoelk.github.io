@@ -1,14 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1) Animate in on view
-  const io = new IntersectionObserver((entries) => {
-    for (const e of entries) {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        io.unobserve(e.target);
+  // 1) Animate in on view (skip animation if URL has hash to avoid scroll jump)
+  const fadeEls = document.querySelectorAll('.fade-in-up');
+  if (window.location.hash) {
+    fadeEls.forEach(el => el.classList.add('visible'));
+    requestAnimationFrame(() => {
+      const target = document.querySelector(window.location.hash);
+      if (target) target.scrollIntoView();
+    });
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
       }
-    }
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.fade-in-up').forEach(el => io.observe(el));
+    }, { threshold: 0.12 });
+    fadeEls.forEach(el => io.observe(el));
+  }
 
   // 2) Sticky header background after scroll
   const navbar = document.querySelector('.navbar');
@@ -36,26 +45,70 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', setActive, { passive: true });
   setActive();
 
-  // 4) Theme toggle (system-aware)
+  // 4) Theme panel (color + mode)
   const root = document.documentElement;
-  const themeBtn = document.querySelector('.theme-toggle');
-  const lsKey = 'theme';
-  const applyTheme = (t) => {
-    if (t === 'light') root.setAttribute('data-theme', 'light');
-    else root.removeAttribute('data-theme');
-    themeBtn?.setAttribute('aria-pressed', t === 'light' ? 'true' : 'false');
-  };
   const systemDark = matchMedia('(prefers-color-scheme: dark)');
-  const saved = localStorage.getItem(lsKey);
-  applyTheme(saved || (systemDark.matches ? 'dark' : 'dark'));
-  systemDark.addEventListener('change', (e) => {
-    if (!localStorage.getItem(lsKey)) applyTheme(e.matches ? 'dark' : 'light');
+
+  const resolveMode = (mode) => {
+    if (mode === 'system') return systemDark.matches ? 'dark' : 'light';
+    return mode;
+  };
+
+  const applyColor = (color) => {
+    root.setAttribute('data-color', color);
+    document.querySelectorAll('.theme-color-btn').forEach(b => {
+      b.classList.toggle('is-active', b.dataset.color === color);
+    });
+    localStorage.setItem('tw-color', color);
+  };
+
+  const applyMode = (mode) => {
+    const effective = resolveMode(mode);
+    if (effective === 'light') root.setAttribute('data-theme', 'light');
+    else root.removeAttribute('data-theme');
+    document.querySelectorAll('.theme-mode-btn').forEach(b => {
+      b.classList.toggle('is-active', b.dataset.mode === mode);
+    });
+    localStorage.setItem('tw-mode', mode);
+  };
+
+  const savedColor = localStorage.getItem('tw-color') || 'sand';
+  const savedMode = localStorage.getItem('tw-mode') || 'dark';
+  applyColor(savedColor);
+  applyMode(savedMode);
+
+  systemDark.addEventListener('change', () => {
+    const mode = localStorage.getItem('tw-mode') || 'dark';
+    if (mode === 'system') applyMode('system');
   });
-  themeBtn?.addEventListener('click', () => {
-    const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
-    const next = current === 'light' ? 'dark' : 'light';
-    if (next === 'dark') localStorage.removeItem(lsKey); else localStorage.setItem(lsKey, next);
-    applyTheme(next);
+
+  document.querySelectorAll('.theme-color-btn').forEach(btn => {
+    btn.addEventListener('click', () => applyColor(btn.dataset.color));
+  });
+  document.querySelectorAll('.theme-mode-btn').forEach(btn => {
+    btn.addEventListener('click', () => applyMode(btn.dataset.mode));
+  });
+
+  // Panel open/close
+  const panelTrigger = document.querySelector('.theme-panel-trigger');
+  const panel = document.querySelector('.theme-panel');
+  const togglePanel = () => {
+    const open = panel.classList.toggle('is-open');
+    panelTrigger.setAttribute('aria-expanded', open);
+  };
+  panelTrigger?.addEventListener('click', togglePanel);
+  document.addEventListener('click', (e) => {
+    if (panel?.classList.contains('is-open') && !e.target.closest('.theme-panel-wrapper')) {
+      panel.classList.remove('is-open');
+      panelTrigger.setAttribute('aria-expanded', 'false');
+    }
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && panel?.classList.contains('is-open')) {
+      panel.classList.remove('is-open');
+      panelTrigger.setAttribute('aria-expanded', 'false');
+      panelTrigger.focus();
+    }
   });
 
   // 5) Mobile menu (accessible)

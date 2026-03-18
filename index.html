@@ -37,13 +37,31 @@
                 <a href="#education" class="nav-link">Education</a>
             </nav>
             <div class="nav-actions">
-                <button class="btn icon-btn theme-toggle" aria-label="Toggle theme" aria-pressed="false">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="feather feather-moon">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                </button>
+                <div class="theme-panel-wrapper">
+                    <button class="btn icon-btn theme-panel-trigger" aria-label="Appearance settings" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+                        </svg>
+                    </button>
+                    <div class="theme-panel" role="dialog" aria-label="Appearance">
+                        <p class="theme-panel-label">Accent</p>
+                        <div class="theme-color-options">
+                            <button class="theme-color-btn is-active" data-color="sand" aria-label="Sand" title="Sand"></button>
+                            <button class="theme-color-btn" data-color="sage" aria-label="Sage" title="Sage"></button>
+                            <button class="theme-color-btn" data-color="burgundy" aria-label="Burgundy" title="Burgundy"></button>
+                            <button class="theme-color-btn" data-color="mono" aria-label="Mono" title="Mono"></button>
+                            <button class="theme-color-btn" data-color="ember" aria-label="Ember" title="Ember"></button>
+                        </div>
+                        <p class="theme-panel-label">Mode</p>
+                        <div class="theme-mode-options">
+                            <button class="theme-mode-btn is-active" data-mode="dark">Dark</button>
+                            <button class="theme-mode-btn" data-mode="light">Light</button>
+                            <button class="theme-mode-btn" data-mode="system">System</button>
+                        </div>
+                    </div>
+                </div>
                 <a href="assets/Thorben_Woelk_CV_2026.pdf" class="btn btn-primary" download target="_blank">
                     Download CV <i data-feather="download"></i>
                 </a>
@@ -127,7 +145,7 @@
                 <div class="timeline">
                     <div class="timeline-item fade-in-up">
                         <div class="timeline-date">Sep 2025 – Present</div>
-                        <div class="timeline-content glass-card">
+                        <div class="timeline-content">
                             <h3>Freelance Data & AI Engineer</h3>
                             <h4>Self-Employed</h4>
                             <p class="location-tag">Hamburg, Germany</p>
@@ -144,7 +162,7 @@
 
                     <div class="timeline-item fade-in-up">
                         <div class="timeline-date">May 2023 – Aug 2025</div>
-                        <div class="timeline-content glass-card">
+                        <div class="timeline-content">
                             <h3>Head of Data Platform</h3>
                             <h4>ZEIT ONLINE</h4>
                             <p class="location-tag">Hamburg, Germany</p>
@@ -164,7 +182,7 @@
 
                     <div class="timeline-item fade-in-up">
                         <div class="timeline-date">Oct 2021 – Apr 2023</div>
-                        <div class="timeline-content glass-card">
+                        <div class="timeline-content">
                             <h3>Software Engineer Big Data</h3>
                             <h4>ZEIT ONLINE</h4>
                             <p class="location-tag">Hamburg, Germany</p>
@@ -194,7 +212,7 @@
 
                     <div class="timeline-item fade-in-up">
                         <div class="timeline-date">Jan 2019 – Sep 2021</div>
-                        <div class="timeline-content glass-card">
+                        <div class="timeline-content">
                             <h3>Software Engineer</h3>
                             <h4>EOS Group</h4>
                             <p class="location-tag">Hamburg, Germany</p>
@@ -217,7 +235,7 @@
 
                     <div class="timeline-item fade-in-up">
                         <div class="timeline-date">Sep 2017 – Nov 2018</div>
-                        <div class="timeline-content glass-card">
+                        <div class="timeline-content">
                             <h3>Junior PPC Analyst</h3>
                             <h4>Forward3D</h4>
                             <ul>
@@ -233,7 +251,7 @@
 
                     <div class="timeline-item fade-in-up">
                         <div class="timeline-date">Apr 2016 – May 2017</div>
-                        <div class="timeline-content glass-card">
+                        <div class="timeline-content">
                             <h3>Research Assistant</h3>
                             <h4>briq - Institute on Behavior and Inequality</h4>
                             <p class="location-tag">Bonn, Germany</p>
@@ -255,45 +273,49 @@
         <section id="certifications" class="section">
             <div class="container">
                 <h2 class="section-title">Certifications</h2>
-                <div class="certifications-grid">
-                    <a href="https://credentials.databricks.com/53fa69bc-ace4-4e43-a29e-5afebe34efbc#acc.AeQsuFmO"
-                        target="_blank" rel="noopener" class="cert-badge glass-card fade-in-up">
-                        <img src="https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/175372167"
-                            alt="Databricks Data Engineer Associate Badge" class="cert-image">
-                        <div class="cert-info">
-                            <h3>Databricks Data Engineer Associate</h3>
-                            <p>Databricks (Feb 2026)</p>
-                        </div>
-                    </a>
-
+                <div class="cert-featured fade-in-up">
                     <a href="https://credentials.databricks.com/ea67bcc5-f4c9-4c06-bbf7-fe7ce8418c55#acc.BPOfpCwA"
-                        target="_blank" rel="noopener" class="cert-badge glass-card fade-in-up">
+                        target="_blank" rel="noopener" class="cert-card">
                         <img src="https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/176750085"
-                            alt="Databricks Data Engineer Professional Badge" class="cert-image">
-                        <div class="cert-info">
-                            <h3>Databricks Data Engineer Professional</h3>
-                            <p>Databricks (Mar 2026)</p>
-                        </div>
+                            alt="Databricks Data Engineer Professional Badge" class="cert-card-badge">
+                        <h3>Data Engineer Professional</h3>
+                        <p>Databricks &middot; 2026</p>
                     </a>
-
-                    <div class="cert-list glass-card fade-in-up">
-                        <h3>Other Certifications</h3>
-                        <ul class="list-unstyled" style="margin-top: 1rem;">
-                            <li><a href="https://learn.deeplearning.ai/certificates/ac3bae8e-55b6-497c-941a-5637a658f24c?usp=sharing"
-                                    target="_blank" rel="noopener"><strong>Neural Networks and Deep Learning
-                                    </strong> -
-                                    DeepLearning.AI
-                                    (Dec 2025)</a></li>
-                            <li><a href="https://learn.deeplearning.ai/certificates/d8ee203e-c9ff-454f-b9da-5860c114c53d?usp=sharing"
-                                    target="_blank" rel="noopener"><strong>Agentic AI</strong> -
-                                    DeepLearning.AI
-                                    (Dec 2025)</a></li>
-                            <li><strong>Agile Coach</strong> - Beratung Judith Andresen (July 2021)</li>
-                            <li><a href="assets/AWS Certified Solutions Architect - Associate.pdf" target="_blank"
-                                    rel="noopener"><strong>AWS Certified Solutions Architect</strong> - Associate
-                                    (2020)</a></li>
-                        </ul>
+                    <a href="https://credentials.databricks.com/53fa69bc-ace4-4e43-a29e-5afebe34efbc#acc.AeQsuFmO"
+                        target="_blank" rel="noopener" class="cert-card">
+                        <img src="https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/175372167"
+                            alt="Databricks Data Engineer Associate Badge" class="cert-card-badge">
+                        <h3>Data Engineer Associate</h3>
+                        <p>Databricks &middot; 2026</p>
+                    </a>
+                    <a href="https://www.credly.com/badges/087a2915-85b7-4ec8-83cf-91eacdae0c63"
+                        target="_blank" rel="noopener" class="cert-card">
+                        <img src="https://images.credly.com/size/340x340/images/4d4693bb-530e-4bca-9327-de07f3aa2348/image.png"
+                            alt="AWS Certified AI Practitioner Badge" class="cert-card-badge">
+                        <h3>AI Practitioner</h3>
+                        <p>AWS &middot; 2026</p>
+                    </a>
+                </div>
+                <div class="cert-other fade-in-up">
+                    <a href="https://learn.deeplearning.ai/certificates/ac3bae8e-55b6-497c-941a-5637a658f24c?usp=sharing"
+                        target="_blank" rel="noopener" class="cert-other-item">
+                        <span>Neural Networks and Deep Learning</span>
+                        <span class="cert-other-detail">DeepLearning.AI &middot; 2025</span>
+                    </a>
+                    <a href="https://learn.deeplearning.ai/certificates/d8ee203e-c9ff-454f-b9da-5860c114c53d?usp=sharing"
+                        target="_blank" rel="noopener" class="cert-other-item">
+                        <span>Agentic AI</span>
+                        <span class="cert-other-detail">DeepLearning.AI &middot; 2025</span>
+                    </a>
+                    <div class="cert-other-item">
+                        <span>Agile Coach</span>
+                        <span class="cert-other-detail">Beratung Judith Andresen &middot; 2021</span>
                     </div>
+                    <a href="assets/AWS Certified Solutions Architect - Associate.pdf" target="_blank"
+                        rel="noopener" class="cert-other-item">
+                        <span>AWS Solutions Architect Associate</span>
+                        <span class="cert-other-detail">AWS &middot; 2020</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -301,93 +323,76 @@
         <!-- PROJECTS -->
         <section id="projects" class="section">
             <div class="container">
-                <h2 class="section-title">Selected Projects</h2>
-                <div class="projects-grid">
-                    <a href="https://dastill-frontend-3x37fd654q-ey.a.run.app/?channel=UCbRP3c757lWg9M-U7TyEkXA&guide=0" target="_blank"
-                        class="project-card glass-card fade-in-up">
-                        <div class="project-header">
-                            <i data-feather="youtube" class="project-icon"></i>
-                            <div class="project-links">
-                            </div>
-                        </div>
+                <h2 class="section-title">Projects</h2>
+
+                <a href="https://dastill-frontend-3x37fd654q-ey.a.run.app/?content=summary&guide=0"
+                    target="_blank" class="proj-hero fade-in-up">
+                    <div class="proj-hero-body">
                         <h3>DAstIll</h3>
-                        <p>Web app that helps you stop doom-scrolling YouTube shorts. dAstIll monitors your favorite YouTube channels, pulls transcripts, and delivers AI-generated summaries.</p>
-                        <div class="tech-stack">
+                        <p>Stop doom-scrolling YouTube shorts. Monitors your favorite channels, pulls transcripts, and delivers AI-generated summaries so you never miss the signal.</p>
+                        <div class="proj-pills">
                             <span>AI Summaries</span>
-                            <span>AI Evals</span>
+                            <span>RAG</span>
+                            <span>Semantic Search</span>
                             <span>ollama</span>
                             <span>Rust rig</span>
                             <span>Svelte</span>
                             <span>GCP</span>
                         </div>
-                    </a>
+                    </div>
+                    <span class="proj-hero-arrow"><i data-feather="arrow-up-right"></i></span>
+                </a>
 
-                    <div class="project-card glass-card fade-in-up">
-                        <div class="project-header">
-                            <i data-feather="database" class="project-icon"></i>
-                            <div class="project-links">
-                                <span class="tag">Property of DIE ZEIT</span>
+                <div class="proj-grid fade-in-up">
+                    <div class="proj-card">
+                        <div class="proj-card-top">
+                            <h3>Hardcover CLI</h3>
+                            <div class="proj-card-links">
+                                <a href="https://github.com/ThorbenWoelk/hardcover.cli" target="_blank" aria-label="GitHub"><i data-feather="github"></i></a>
                             </div>
                         </div>
-                        <h3>Data Ingestion Framework</h3>
-                        <p>An object-oriented batch ingestion framework built with Python on Kubernetes and GCP to
-                            reduce time to market of available data sources.</p>
-                        <div class="tech-stack">
+                        <p>Open-source Rust CLI for the Hardcover.app GraphQL API. Manage books, lists, and reading goals from the terminal. Available in the <a href="https://docs.hardcover.app/showcase/?project=hardcover-cli" target="_blank" rel="noopener">Hardcover community showcase</a>.</p>
+                        <div class="proj-pills">
+                            <span>Rust</span>
+                            <span>GraphQL</span>
+                            <span>Open Source</span>
+                        </div>
+                    </div>
+                    <div class="proj-card">
+                        <div class="proj-card-top">
+                            <h3>Data Ingestion Framework</h3>
+                            <span class="proj-card-owner">ZEIT ONLINE</span>
+                        </div>
+                        <p>Object-oriented batch ingestion framework built with Python on Kubernetes and GCP to reduce time to market of available data sources.</p>
+                        <div class="proj-pills">
                             <span>Python</span>
                             <span>GCP</span>
                             <span>Kubernetes</span>
                         </div>
                     </div>
-
-                    <div class="project-card glass-card fade-in-up">
-                        <div class="project-header">
-                            <i data-feather="git-merge" class="project-icon"></i>
-                            <div class="project-links">
-                                <span class="tag">Property of DIE ZEIT</span>
-                            </div>
+                    <div class="proj-card">
+                        <div class="proj-card-top">
+                            <h3>Data Pipeline Manager</h3>
+                            <span class="proj-card-owner">ZEIT ONLINE</span>
                         </div>
-                        <h3>Data Pipeline Manager</h3>
-                        <p>An API for engineers to manage and operate data ingestion jobs.</p>
-                        <div class="tech-stack">
+                        <p>API for engineers to manage and operate data ingestion jobs across the platform.</p>
+                        <div class="proj-pills">
                             <span>Python</span>
                             <span>GCP</span>
                             <span>API</span>
                         </div>
                     </div>
-
-
-                </div>
-
-                <!-- Other Projects (Less Relevant) -->
-                <div class="other-projects-container fade-in-up" style="margin-top: 4rem;">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--muted); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; font-family: var(--font-heading);">Other Projects</h3>
-                    <div class="other-projects-list" style="display: grid; gap: 1rem;">
-                        <a href="https://github.com/ThorbenWoelk/hardcover.cli" target="_blank" class="glass-card" style="display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem;">
-                            <i data-feather="terminal" style="color: var(--primary); width: 32px; height: 32px; flex-shrink: 0;"></i>
-                            <div style="flex-grow: 1;">
-                                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
-                                    <h4 style="margin: 0; font-size: 1.1rem; font-family: var(--font-heading);">Hardcover CLI</h4>
-                                    <span class="tag">Rust</span>
-                                </div>
-                                <p style="margin: 0.5rem 0 0; font-size: 0.95rem; color: var(--muted);">Rust-based CLI for the Hardcover.app GraphQL API. Manage books, lists, and reading goals from the terminal.</p>
-                            </div>
-                            <i data-feather="github" style="width: 20px; height: 20px; color: var(--muted); flex-shrink: 0;"></i>
-                        </a>
-                        <a href="https://totos-photos-673062863574.us-central1.run.app/#current" target="_blank" class="glass-card" style="display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem;">
-                            <i data-feather="aperture" style="color: var(--primary); width: 32px; height: 32px; flex-shrink: 0;"></i>
-                            <div style="flex-grow: 1;">
-                                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
-                                    <h4 style="margin: 0; font-size: 1.1rem; font-family: var(--font-heading);">Photography Portfolio</h4>
-                                    <div style="display: flex; gap: 0.5rem;">
-                                        <span class="tag">Svelte</span>
-                                        <span class="tag">Cloud Run</span>
-                                    </div>
-                                </div>
-                                <p style="margin: 0.5rem 0 0; font-size: 0.95rem; color: var(--muted);">A website showcasing photography work. Built with Svelte on Google Cloud Run.</p>
-                            </div>
-                            <i data-feather="external-link" style="width: 20px; height: 20px; color: var(--muted); flex-shrink: 0;"></i>
-                        </a>
-                    </div>
+                    <a href="https://totos-photos-673062863574.us-central1.run.app/#current" target="_blank" class="proj-card">
+                        <div class="proj-card-top">
+                            <h3>Photography Portfolio</h3>
+                            <i data-feather="arrow-up-right" class="proj-card-ext"></i>
+                        </div>
+                        <p>Website showcasing photography work. Built with Svelte on Google Cloud Run.</p>
+                        <div class="proj-pills">
+                            <span>Svelte</span>
+                            <span>Cloud Run</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -396,119 +401,95 @@
         <section id="skills" class="section">
             <div class="container">
                 <h2 class="section-title">Skills & Tech</h2>
-                <div class="skills-wrapper">
-                    <div class="skill-group fade-in-up">
-                        <h3><i data-feather="code"></i> Technical Stack</h3>
-                        <div class="skill-list">
-                            <div class="skill-category-card glass-card">
-                                <h4>Languages</h4>
-                                <div class="tags">
-                                    <span>Python</span>
-                                    <span>SQL</span>
-                                    <span>JavaScript/TypeScript</span>
-                                    <span>Rust</span>
-                                </div>
-                            </div>
-
-                            <div class="skill-category-card glass-card">
-                                <h4>Cloud Platforms</h4>
-                                <div class="tags">
-                                    <span>GCP</span>
-                                    <span>AWS</span>
-                                    <span>Azure</span>
-                                </div>
-                            </div>
-
-                            <div class="skill-category-card glass-card">
-                                <h4>Data Technologies</h4>
-                                <div class="tags">
-                                    <span>Databricks</span>
-                                    <span>BigQuery</span>
-                                    <span>dbt core</span>
-                                    <span>dbt platform/cloud</span>
-                                    <span>Azure Data Factory</span>
-                                    <span>Apache Spark</span>
-                                    <span>PySpark</span>
-                                    <span>PostgreSQL</span>
-                                    <span>SurrealDB</span>
-                                    <span>Pub/Sub</span>
-                                    <span>Kafka</span>
-                                    <span>Redshift</span>
-                                    <span>Looker</span>
-                                    <span>Neo4j Cypher</span>
-                                    <span>Google Dataflow</span>
-                                </div>
-                            </div>
-
-                            <div class="skill-category-card glass-card">
-                                <h4>Machine Learning & AI</h4>
-                                <div class="tags">
-                                    <span>AWS Sagemaker</span>
-                                    <span>Vertex AI</span>
-                                    <span>sklearn</span>
-                                    <span>pytorch</span>
-                                    <span>pydantic-ai</span>
-                                    <span>pydantic-logfire</span>
-                                    <span>ADK</span>
-                                    <span>langgraph</span>
-                                    <span>crew-ai</span>
-                                    <span>deepagents</span>
-                                    <span>strands</span>
-                                    <span>haystack</span>
-                                    <span>ollama</span>
-                                    <span>Claude Code</span>
-                                    <span>Cursor</span>
-                                    <span>Codex</span>
-                                    <span>Open Web UI</span>
-                                </div>
-                            </div>
-
-                            <div class="skill-category-card glass-card">
-                                <h4>DevOps, CI/CD</h4>
-                                <div class="tags">
-                                    <span>Kubernetes</span>
-                                    <span>Docker</span>
-                                    <span>GitHub Actions</span>
-                                    <span>Terraform</span>
-                                    <span>ansible</span>
-                                    <span>cdk</span>
-                                    <span>CloudFormation</span>
-                                    <span>Grafana</span>
-                                </div>
-                            </div>
-
-                            <div class="skill-category-card glass-card">
-                                <h4>Methodologies</h4>
-                                <div class="tags">
-                                    <span>Agile Coaching</span>
-                                    <span>User Story Mapping</span>
-                                    <span>Test Driven Development (TDD)</span>
-                                </div>
-                            </div>
+                <div class="skills-flat fade-in-up">
+                    <div class="skill-row">
+                        <h4 class="skill-row-label">Languages</h4>
+                        <div class="skill-pills">
+                            <span>Python</span>
+                            <span>SQL</span>
+                            <span>JavaScript/TypeScript</span>
+                            <span>Rust</span>
                         </div>
                     </div>
-
-
-
-                    <div class="skill-group fade-in-up" style="margin-top: 2rem;">
-                        <h3><i data-feather="message-circle"></i> Languages</h3>
-                        <div class="languages-grid">
-                            <div class="language-item glass-card">
-                                <span>German</span>
-                                <span class="level">Native</span>
-                            </div>
-                            <div class="language-item glass-card">
-                                <span>English</span>
-                                <span class="level">Fluent</span>
-                            </div>
-                            <div class="language-item glass-card">
-                                <span>Spanish</span>
-                                <span class="level">Basic</span>
-                            </div>
-                            <div class="language-item glass-card">
-                                <span>French</span>
-                                <span class="level">Basic</span>
-                            </div>
+                    <div class="skill-row">
+                        <h4 class="skill-row-label">Cloud</h4>
+                        <div class="skill-pills">
+                            <span>GCP</span>
+                            <span>AWS</span>
+                            <span>Azure</span>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <h4 class="skill-row-label">Data</h4>
+                        <div class="skill-pills">
+                            <span>Databricks</span>
+                            <span>BigQuery</span>
+                            <span>dbt core</span>
+                            <span>dbt platform/cloud</span>
+                            <span>Azure Data Factory</span>
+                            <span>Apache Spark</span>
+                            <span>PySpark</span>
+                            <span>PostgreSQL</span>
+                            <span>SurrealDB</span>
+                            <span>Pub/Sub</span>
+                            <span>Kafka</span>
+                            <span>Redshift</span>
+                            <span>Looker</span>
+                            <span>Neo4j Cypher</span>
+                            <span>Google Dataflow</span>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <h4 class="skill-row-label">ML & AI</h4>
+                        <div class="skill-pills">
+                            <span>AWS Bedrock</span>
+                            <span>AWS Sagemaker</span>
+                            <span>Vertex AI</span>
+                            <span>sklearn</span>
+                            <span>pytorch</span>
+                            <span>pydantic-ai</span>
+                            <span>pydantic-logfire</span>
+                            <span>ADK</span>
+                            <span>langgraph</span>
+                            <span>crew-ai</span>
+                            <span>deepagents</span>
+                            <span>strands</span>
+                            <span>haystack</span>
+                            <span>ollama</span>
+                            <span>Claude Code</span>
+                            <span>Cursor</span>
+                            <span>Codex</span>
+                            <span>Open Web UI</span>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <h4 class="skill-row-label">DevOps</h4>
+                        <div class="skill-pills">
+                            <span>Kubernetes</span>
+                            <span>Docker</span>
+                            <span>GitHub Actions</span>
+                            <span>Terraform</span>
+                            <span>ansible</span>
+                            <span>cdk</span>
+                            <span>CloudFormation</span>
+                            <span>Grafana</span>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <h4 class="skill-row-label">Methods</h4>
+                        <div class="skill-pills">
+                            <span>Agile Coaching</span>
+                            <span>User Story Mapping</span>
+                            <span>Test Driven Development</span>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <h4 class="skill-row-label">Spoken</h4>
+                        <div class="skill-pills">
+                            <span>German <small>Native</small></span>
+                            <span>English <small>Fluent</small></span>
+                            <span>Spanish <small>Basic</small></span>
+                            <span>French <small>Basic</small></span>
                         </div>
                     </div>
                 </div>
