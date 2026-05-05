@@ -3478,6 +3478,66 @@ section[data-deck-active] .platform-arch__brown-lines {
   background: linear-gradient(90deg, transparent, rgba(42, 40, 36, 0.35), transparent);
 }
 
+.ai-usecase-layout {
+  position: absolute;
+  inset: 150px 100px 118px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  gap: 80px;
+  align-items: center;
+}
+
+.ai-usecase-copy {
+  max-width: 610px;
+}
+
+.ai-usecase-spectrum {
+  display: grid;
+  gap: 24px;
+}
+
+.ai-usecase-panel {
+  border-top: 1px solid rgba(216, 212, 204, 0.32);
+  padding-top: 24px;
+}
+
+.ai-usecase-panel span {
+  display: block;
+  margin-bottom: 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.ai-usecase-panel h3 {
+  margin: 0 0 10px;
+  font-family: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.03;
+  color: var(--ink);
+}
+
+.ai-usecase-panel p {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 22px;
+  line-height: 1.38;
+  color: var(--ink-soft);
+}
+
+.ai-usecase-panel--strong span,
+.ai-usecase-panel--strong h3 {
+  color: var(--accent);
+}
+
+.ai-usecase-panel--weak {
+  opacity: 0.72;
+}
+
 .ai-quad-block {
   position: absolute;
   inset: 150px 100px 120px;
