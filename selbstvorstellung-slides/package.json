@@ -1,0 +1,13 @@
+{
+  "name": "selbstvorstellung-readable",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "preserve": "sh -c 'P=${PORT:-8765}; for p in $(lsof -ti tcp:$P 2>/dev/null); do kill $p 2>/dev/null; done'",
+    "serve": "node serve.mjs",
+    "predev": "npm run preserve",
+    "dev": "node serve.mjs --watch",
+    "preview": "node build.mjs && npm run serve"
+  }
+}
