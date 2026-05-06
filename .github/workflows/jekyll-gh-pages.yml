@@ -37,7 +37,7 @@ jobs:
         run: npm ci
       - name: Build slide deck
         run: node build.mjs
-        working-directory: ./selbstvorstellung-slides
+        working-directory: ./selbstvorstellung
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Build with Jekyll
