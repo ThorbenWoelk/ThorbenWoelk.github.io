@@ -25,10 +25,16 @@ If you want to run this locally with auto-refresh:
 bun install
 
 # Start development server
-bun run dev
+./start_app.sh
 ```
 
-Then open http://localhost:3000 in your browser.
+Then open http://localhost:48731 in your browser.
+
+Stop the local server:
+
+```bash
+./end_app.sh
+```
 
 ## CV PDF Export
 

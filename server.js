@@ -10,7 +10,7 @@ const helmet = require('helmet');
 
 // Initialize Express app
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 48731;
 
 // Use security middleware
 app.use(helmet({
